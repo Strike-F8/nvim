@@ -24,20 +24,40 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " vim-surround: Easily edit surrounding quotes and parentheses
-
 Plugin 'vim-surround'
 
 " vim-airline: Status bar at the bottom
 Plugin 'vim-airline'
 
-" YouCompleteMe
-Plugin 'ycm-core/YouCompleteMe'
+" dispatch.vim - Asynchronous build and test dispatcher
+Plugin 'tpope/vim-dispatch'
 
 " AsyncRun run commands asynchronously and output to quickfix window
 Plugin 'skywind3000/asyncrun.vim'
 
 " Errormarker highlights lines that contain errors
 Plugin 'mh21/errormarker.vim'
+
+" ALE: syntax fixing and linting for many languages including Ruby and Python
+Plugin 'dense-analysis/ale'
+
+" rust.vim: Rust file detection, highlighting, formatting etc..
+Plugin 'rust-lang/rust.vim'
+
+" RACER: Rust autocompletion
+Plugin 'racer-rust/racer'
+
+" irblack theme
+Plugin 'twerth/vim-irblack'
+
+" plastic theme
+Plugin 'flrnd/plastic.vim'
+
+" monokai-tasty theme
+Plugin 'patstockwell/vim-monokai-tasty'
+
+" vim-colorschemes pack
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,8 +91,13 @@ let g:airline#extensions#tabline#enabled = 1
 " Buffer indicator format: display full path on top right of buffer
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" Enable capslock integration
+" Enable Capslock integration
 let g:airline#extensions#capslock#enabled = 1
+
+" SQL workbench configuration
+let g:sw_exe = "C:\\tools\\sqlworkbench\\SQLWorkbench.cmd"
+let g:sw_tmp = "/tmp"
+let g:sw_config_dir = "$HOME\\.sqlworkbench"
 
 " BLOCK SELECTION
 " https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim/1676690#1676690
@@ -95,3 +120,25 @@ let g:clang_format#style_options = {
 " shortcuts for autoformatting an entire C-family file: Ctrl+j
 inoremap <C-j> <Esc>:ClangFormat<CR>a
 nnoremap <C-j> <Esc>:ClangFormat<CR>
+
+" ALE configuration: show the number of errors and warnings in status bar
+" Taken from https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019/
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? '✨ all good ✨' : printf(
+		\ '😞 %dW %dE',
+		\ all_non_errors,
+		\ all_errors
+		\)
+endfunction
+
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
+filetype on

@@ -14,3 +14,6 @@ set matchpairs+=<:>
 
 " Enable spell checker
 set spell
+
+" Support for .ejs files
+au BufNewFile,BufRead *.ejs set filetype=html.js
