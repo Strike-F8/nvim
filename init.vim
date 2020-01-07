@@ -3,6 +3,9 @@ source $HOME\AppData\Local\nvim\format.vim
 source $HOME\AppData\Local\nvim\html.vim
 source $HOME\AppData\Local\nvim\keybindings.vim
 source $HOME\AppData\Local\nvim\theme.vim
+source $HOME\AppData\Local\nvim\quickui.vim
+
+set backupdir=$HOME\AppData\Local\nvim\backup
 
 " source init.vim from the present working directory
 set exrc
@@ -10,66 +13,63 @@ set exrc
 " because using another init.vim could possibly be risky
 set secure
 
-" VUNDLE CONFIG
+" vim-plug CONFIG
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('$HOME\.vim\bundle')
 
 " vim-surround: Easily edit surrounding quotes and parentheses
-Plugin 'vim-surround'
+Plug 'tpope/vim-surround'
 
 " vim-airline: Status bar at the bottom
-Plugin 'vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " dispatch.vim - Asynchronous build and test dispatcher
-Plugin 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 
 " AsyncRun run commands asynchronously and output to quickfix window
-Plugin 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " Errormarker highlights lines that contain errors
-Plugin 'mh21/errormarker.vim'
+Plug 'mh21/errormarker.vim'
 
 " ALE: syntax fixing and linting for many languages including Ruby and Python
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 " rust.vim: Rust file detection, highlighting, formatting etc..
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
 " RACER: Rust autocompletion
-Plugin 'racer-rust/racer'
-
-" irblack theme
-Plugin 'twerth/vim-irblack'
+Plug 'racer-rust/racer'
 
 " plastic theme
-Plugin 'flrnd/plastic.vim'
+Plug 'flrnd/plastic.vim'
 
 " monokai-tasty theme
-Plugin 'patstockwell/vim-monokai-tasty'
+Plug 'patstockwell/vim-monokai-tasty'
 
 " vim-colorschemes pack
-Plugin 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
+
+" vim-quickui
+Plug 'skywind3000/vim-quickui'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
 " Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" :PlugList       - lists configured plugins
+" :PlugInstall    - Install plugins
+" :PlugUpdate	  - Install or update plugins
+" :PlugClean      - Remove unlisted plugins
+" :PlugUpgrade	  - Upgrade vim-plug itself
+" :PlugStatus	  - Check the status of plugins
+" :PlugDiff	  - Examine changes from the previous update and the pending changes
+" :PlugSnapshot	  - Generate script for restoring the current snapshot of plugins
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
