@@ -3,7 +3,6 @@ source $HOME\AppData\Local\nvim\format.vim
 source $HOME\AppData\Local\nvim\html.vim
 source $HOME\AppData\Local\nvim\keybindings.vim
 source $HOME\AppData\Local\nvim\theme.vim
-source $HOME\AppData\Local\nvim\quickui.vim
 
 set backupdir=$HOME\AppData\Local\nvim\backup
 
@@ -76,6 +75,8 @@ filetype plugin indent on    " required
 " END VUNDLE CONFIG
 
 " Plugin configuration
+" quickui configuration
+source $HOME\AppData\Local\nvim\quickui.vim
 
 " set AsyncRun's encoding to be the same as neovim
 let g:asyncrun_encs = 'gbk'
