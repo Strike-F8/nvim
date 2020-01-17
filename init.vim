@@ -18,6 +18,9 @@ filetype off                  " required
 
 call plug#begin('$HOME\.vim\bundle')
 
+" elm-vim: syntax, indentation, build, formatting, etc. for elm-lang
+Plug 'ElmCast/elm-vim'
+
 " vim-surround: Easily edit surrounding quotes and parentheses
 Plug 'tpope/vim-surround'
 
@@ -70,10 +73,6 @@ filetype plugin indent on    " required
 " :PlugDiff	  - Examine changes from the previous update and the pending changes
 " :PlugSnapshot	  - Generate script for restoring the current snapshot of plugins
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-" END VUNDLE CONFIG
-
 " Plugin configuration
 " quickui configuration
 source $HOME\AppData\Local\nvim\quickui.vim
