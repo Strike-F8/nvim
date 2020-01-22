@@ -2,7 +2,6 @@
 source $HOME\AppData\Local\nvim\format.vim
 source $HOME\AppData\Local\nvim\html.vim
 source $HOME\AppData\Local\nvim\keybindings.vim
-source $HOME\AppData\Local\nvim\theme.vim
 
 set backupdir=$HOME\AppData\Local\nvim\backup
 
@@ -77,6 +76,8 @@ filetype plugin indent on    " required
 " quickui configuration
 source $HOME\AppData\Local\nvim\quickui.vim
 
+" load theme after color plugins have been loaded
+source $HOME\AppData\Local\nvim\theme.vim
 " set AsyncRun's encoding to be the same as neovim
 let g:asyncrun_encs = 'gbk'
 

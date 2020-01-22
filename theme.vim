@@ -1,7 +1,7 @@
 " All the pretty colors go here
 
 " colors!!!
-colo desert
+colo molokai
 syntax on
 
 " highlight 80th and 100th column so that I don't go past it
