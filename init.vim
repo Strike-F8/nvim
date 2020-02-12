@@ -2,7 +2,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-call plug#begin('$HOME\.vim\bundle')
+call plug#begin('~/nvim/bundle')
 
 " elm-vim: syntax, indentation, build, formatting, etc. for elm-lang
 Plug 'ElmCast/elm-vim'
