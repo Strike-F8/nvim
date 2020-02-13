@@ -76,6 +76,10 @@ filetype plugin indent on    " required
 " :PlugSnapshot	  - Generate script for restoring the current snapshot of plugins
 "
 " Plugin configuration
+" javacomplete2 configuration
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" set JAVA_HOME so JDK is used instead of JRE https://stackoverflow.com/a/46885299
+
 " quickui configuration
 source $HOME\AppData\Local\nvim\quickui.vim
 
