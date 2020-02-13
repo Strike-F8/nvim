@@ -17,6 +17,9 @@ filetype off                  " required
 
 call plug#begin('$HOME\.vim\bundle')
 
+" vim-javacomplete2: omni-completion plugin for Java
+Plug 'artur-shaik/vim-javacomplete2'
+
 " elm-vim: syntax, indentation, build, formatting, etc. for elm-lang
 Plug 'ElmCast/elm-vim'
 
