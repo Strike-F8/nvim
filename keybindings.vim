@@ -173,9 +173,9 @@ function! s:NextColor(how, echo_color)
   endif
 endfunction
 
-" nnoremap <F8> :call NextColor(1)<CR>
-" nnoremap <S-F8> :call NextColor(-1)<CR>
-" nnoremap <A-F8> :call NextColor(0)<CR>
+nnoremap <C-F8> :call NextColor(1)<CR>
+nnoremap <S-F8> :call NextColor(-1)<CR>
+nnoremap <A-F8> :call NextColor(0)<CR>
 
 " Set color scheme according to current time of day.
 function! s:HourColor()
@@ -205,4 +205,6 @@ function! ScreenSaver()
     endwhile
 endfunction
 
-nnoremap <A-`> :call screensaver()
+nnoremap <A-`> :call ScreenSaver()
+
+nnoremap <silent> <C-`> :vnew $MYVIMRC <cr>
