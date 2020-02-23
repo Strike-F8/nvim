@@ -1,9 +1,9 @@
 " source vim configuration files
-source $HOME\AppData\Local\nvim\format.vim
-source $HOME\AppData\Local\nvim\html.vim
-source $HOME\AppData\Local\nvim\keybindings.vim
+source $HOME/.config/nvim/format.vim
+source $HOME/.config/nvim/html.vim
+source $HOME/.config/nvim/keybindings.vim
 
-set backupdir=$HOME\AppData\Local\nvim\backup
+set backupdir=~/.backup/
 
 " source init.vim from the present working directory
 set exrc
@@ -15,7 +15,7 @@ set secure
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-call plug#begin('$HOME\.vim\bundle')
+call plug#begin('$HOME/.config/nvim/bundle')
 
 " elm-vim: syntax, indentation, build, formatting, etc. for elm-lang
 Plug 'ElmCast/elm-vim'
@@ -74,10 +74,10 @@ filetype plugin indent on    " required
 "
 " Plugin configuration
 " quickui configuration
-source $HOME\AppData\Local\nvim\quickui.vim
+source $HOME/.config/nvim/quickui.vim
 
 " load theme after color plugins have been loaded
-source $HOME\AppData\Local\nvim\theme.vim
+source $HOME/.config/nvim/theme.vim
 " set AsyncRun's encoding to be the same as neovim
 let g:asyncrun_encs = 'gbk'
 
