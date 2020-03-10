@@ -3,7 +3,11 @@ source $HOME\AppData\Local\nvim\format.vim
 source $HOME\AppData\Local\nvim\html.vim
 source $HOME\AppData\Local\nvim\keybindings.vim
 
+" set backup directory
 set backupdir=$HOME\AppData\Local\nvim\backup
+
+" Set python location
+let g:python3_host_prog = 'C:\Python38\python.exe' 
 
 " source init.vim from the present working directory
 set exrc
@@ -17,8 +21,17 @@ filetype off                  " required
 
 call plug#begin('$HOME\.vim\bundle')
 
+" neoformat
+Plug 'sbdchd/neoformat'
+
 " vim-javacomplete2: omni-completion plugin for Java
 Plug 'artur-shaik/vim-javacomplete2'
+
+" deoplete
+Plug 'Shougo/deoplete.nvim'
+
+" neomake
+Plug 'neomake/neomake'
 
 " elm-vim: syntax, indentation, build, formatting, etc. for elm-lang
 Plug 'ElmCast/elm-vim'
@@ -59,6 +72,11 @@ Plug 'flazz/vim-colorschemes'
 " vim-quickui
 Plug 'skywind3000/vim-quickui'
 
+" vim-terraform. Terraform linting and autocompletion
+Plug 'hashivim/vim-terraform'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -80,6 +98,27 @@ filetype plugin indent on    " required
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " set JAVA_HOME so JDK is used instead of JRE https://stackoverflow.com/a/46885299
 
+" neomake configuration
+autocmd! BufWritePost,BufEnter * Neomake
+
+" neoformat configuration
+augroup astyle
+    autocmd!
+    autocmd BufWritePre * Neoformat
+augroup END
+
+" deoplete configuration
+let g:deoplete#omni_patterns = {}
+" Java
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1
+" terraform
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w'
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#initialize()
 " quickui configuration
 source $HOME\AppData\Local\nvim\quickui.vim
 
@@ -106,6 +145,26 @@ let g:airline#extensions#capslock#enabled = 1
 let g:sw_exe = "C:\\tools\\sqlworkbench\\SQLWorkbench.cmd"
 let g:sw_tmp = "/tmp"
 let g:sw_config_dir = "$HOME\\.sqlworkbench"
+
+" syntastic configuration
+set statusline +=%#warningmsg#
+set statusline +=%{SyntasticStatusLineFlag()}
+set statusline +=%*
+
+let g:synstastic_always_populate_loc_list = 1
+let g:synstastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" terraform configuration
+" Enable terraform plan to be included in filter
+let g:syntastic_terraform_tffilter_plan = 1
+
+" Terraform keymapping
+let g:terraform_completion_keys = 1
+
+" Terraform module registry completion
+let g:terraform_registry_module_completion = 0
 
 " BLOCK SELECTION
 " https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim/1676690#1676690
