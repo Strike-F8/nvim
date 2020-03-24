@@ -27,9 +27,6 @@ Plug 'sbdchd/neoformat'
 " vim-javacomplete2: omni-completion plugin for Java
 Plug 'artur-shaik/vim-javacomplete2'
 
-" deoplete
-Plug 'Shougo/deoplete.nvim'
-
 " neomake
 Plug 'neomake/neomake'
 
@@ -72,11 +69,6 @@ Plug 'flazz/vim-colorschemes'
 " vim-quickui
 Plug 'skywind3000/vim-quickui'
 
-" vim-terraform. Terraform linting and autocompletion
-Plug 'hashivim/vim-terraform'
-Plug 'vim-syntastic/syntastic'
-Plug 'juliosueiras/vim-terraform-completion'
-
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -107,18 +99,6 @@ augroup astyle
     autocmd BufWritePre * Neoformat
 augroup END
 
-" deoplete configuration
-let g:deoplete#omni_patterns = {}
-" Java
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
-" terraform
-let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w'
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#initialize()
 " quickui configuration
 source $HOME\AppData\Local\nvim\quickui.vim
 
@@ -145,26 +125,6 @@ let g:airline#extensions#capslock#enabled = 1
 let g:sw_exe = "C:\\tools\\sqlworkbench\\SQLWorkbench.cmd"
 let g:sw_tmp = "/tmp"
 let g:sw_config_dir = "$HOME\\.sqlworkbench"
-
-" syntastic configuration
-set statusline +=%#warningmsg#
-set statusline +=%{SyntasticStatusLineFlag()}
-set statusline +=%*
-
-let g:synstastic_always_populate_loc_list = 1
-let g:synstastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" terraform configuration
-" Enable terraform plan to be included in filter
-let g:syntastic_terraform_tffilter_plan = 1
-
-" Terraform keymapping
-let g:terraform_completion_keys = 1
-
-" Terraform module registry completion
-let g:terraform_registry_module_completion = 0
 
 " BLOCK SELECTION
 " https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim/1676690#1676690
