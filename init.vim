@@ -169,3 +169,6 @@ set statusline+=\ %f
 set statusline+=%=
 set statusline+=\ %{LinterStatus()}
 filetype on
+
+" Automatically change directory when opening files, changing buffers etc
+set autochdir

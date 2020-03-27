@@ -207,4 +207,5 @@ endfunction
 
 nnoremap <A-`> :call ScreenSaver()
 
-nnoremap <silent> <C-`> :vnew $MYVIMRC <cr>
+" Open neovim configuration directory in a new vertical buffer
+nnoremap <silent> <C-`> :vnew $HOME\AppData\Local\nvim <cr>
