@@ -205,7 +205,7 @@ function! ScreenSaver()
     endwhile
 endfunction
 
-nnoremap <A-`> :call ScreenSaver()
+nnoremap <A-`> :call ScreenSaver() <cr>
 
 " Open neovim configuration directory in a new vertical buffer
 nnoremap <silent> <C-`> :vnew $HOME\AppData\Local\nvim <cr>
