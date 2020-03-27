@@ -9,13 +9,16 @@ set ignorecase
 
 " toggle search highlighting with F3
 nnoremap <F3> :set hlsearch!<CR>
+" If you don't have function keys (eg chromebook)
+" toggle with CTRL-3
+nnoremap <C-3> :set hlsearch!<CR>
 
 " set directories for backup, swap, and undo
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" Use Windows clipboard
+" Use OS clipboard
 set clipboard+=unnamedplus
 
 " Yank from current cursor position to end of line
@@ -40,6 +43,8 @@ let g:asyncrun_auto = "make"
 
 " F10 toggle quickfix window
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+" For chromebook toggle with CTRL-0
+nnoremap <C-0> :call asyncrun#quickfix_toggle(6)<cr>
 
 " F12 compile single file with SDL
 nnoremap <silent> <F12> :AsyncRun g++ "$(VIM_FILEPATH)" -Wextra -Werror -Wall -O2 -std=c++11 -IC:\Win-builds\SDL\SDL2-2.0.10\x86_64-w64-mingw32\include\SDL2 -LC:\Win-builds\SDL\SDL2-2.0.10\x86_64-w64-mingw32\lib -lmingw32 -lSDL2main -lSDL2 -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
@@ -206,3 +211,6 @@ function! ScreenSaver()
 endfunction
 
 nnoremap <A-`> :call screensaver()
+
+" CTRL-` Open vim configuration directory in vertical buffer
+nnoremap <C-1> :vnew ~/.config/nvim/<CR>
