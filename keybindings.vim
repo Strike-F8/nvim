@@ -3,6 +3,9 @@
 " Exit terminal with ESC
 tnoremap <ESC> <C-\><C-n>
 
+" CTRL-` Open vim configuration directory in vertical buffer
+nnoremap <C-a> :vnew ~/.config/nvim/<CR>
+
 " ==========SEARCHING===============
 " Ignore case when searching
 set ignorecase
@@ -212,5 +215,4 @@ endfunction
 
 nnoremap <A-`> :call screensaver()
 
-" CTRL-` Open vim configuration directory in vertical buffer
-nnoremap <C-1> :vnew ~/.config/nvim/<CR>
+
