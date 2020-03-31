@@ -3,7 +3,7 @@ source $HOME/.config/nvim/format.vim
 source $HOME/.config/nvim/html.vim
 source $HOME/.config/nvim/keybindings.vim
 
-set backupdir=~/.backup/
+set backupdir=~/.vim/backup
 
 " source init.vim from the present working directory
 set exrc
