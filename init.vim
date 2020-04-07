@@ -9,6 +9,7 @@ set backupdir=$HOME\AppData\Local\nvim\backup
 " Set python location
 let g:python3_host_prog = 'C:\Python38\python.exe' 
 
+" TODO: THIS DOESN'T SEEM TO WORK
 " source init.vim from the present working directory
 set exrc
 " Restrict usage of some commands for security reasons
