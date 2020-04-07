@@ -1,5 +1,7 @@
-" Set python location
-let g:python3_host_prog = 'C:\Python38\python.exe' 
+if has('win32') || has('win16')
+    " Set python location
+    let g:python3_host_prog = 'C:\Python38\python.exe' 
+endif
 
 " set backup directory
 set backupdir=$HOME/.vim/backup
