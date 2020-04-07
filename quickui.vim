@@ -26,6 +26,7 @@ call quickui#menu#install("&Option", [
 			\ ['Set &Spell %{&spell? "Off":"On"}', 'set spell!'],
 			\ ['Set &Cursor Line %{&cursorline? "Off":"On"}', 'set cursorline!'],
 			\ ['Set &Paste %{&paste? "Off":"On"}', 'set paste!'],
+			\ ['Set &hlsearch %{&hlsearch? "Off":"On"}', 'set hlsearch!'],
 			\ ])
 
 " register HELP menu with weight 1000
@@ -37,6 +38,29 @@ call quickui#menu#install('H&elp', [
 			\ ['&Quick Reference', 'help quickref', ''],
 			\ ['&Summary', 'help summary', ''],
 			\ ], 10000)
+
+" register PROJECT menu for shortcuts to build projects
+" TODO: work in progress
+call quickui#menu#install('&PROJECT', [
+			\ ['&Build project', ''],
+			\ ['&Run project', ''],
+			\ ])
+
+" register CONFIG menu for modifying neovim configuration files
+" The paths will be different according to each operating system
+if has("win32") || has("win16")
+    call quickui#menu#install('&CONFIG', [
+			    \ ['&init.vim', 'vnew $HOME\AppData\Local\nvim\init.vim'],
+			    \ ['&keybindings.vim', 'vnew $HOME\AppData\Local\nvim\keybindings.vim'],
+			    \ ['Go to Configuration &Directory', 'vnew $HOME\AppData\Local\nvim'],
+			    \ ])
+else
+    call quickui#menu#install('&CONFIG', [
+			    \ ['&init.vim', 'vnew ~/.config/nvim/init.vim'],
+			    \ ['&keybindings.vim', 'vnew ~/.config/nvim/keybindings.vim'],
+			    \ ['Go to Configuration &Directory', 'vnew ~/.config/nvim'],
+			    \ ])
+endif
 
 " enable to display tips in the cmdline
 let g:quickui_show_tip = 1
