@@ -1,13 +1,8 @@
-" source vim configuration files
-source $HOME\AppData\Local\nvim\format.vim
-source $HOME\AppData\Local\nvim\html.vim
-source $HOME\AppData\Local\nvim\keybindings.vim
-
-" set backup directory
-set backupdir=$HOME\AppData\Local\nvim\backup
-
 " Set python location
 let g:python3_host_prog = 'C:\Python38\python.exe' 
+
+" set backup directory
+set backupdir=$HOME/.vim/backup
 
 " TODO: THIS DOESN'T SEEM TO WORK
 " source init.vim from the present working directory
@@ -20,7 +15,7 @@ set secure
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-call plug#begin('$HOME\.vim\bundle')
+call plug#begin('$HOME/.vim/bundle')
 
 " neoformat
 Plug 'sbdchd/neoformat'
@@ -100,11 +95,20 @@ augroup astyle
     autocmd BufWritePre * Neoformat
 augroup END
 
-" quickui configuration
-source $HOME\AppData\Local\nvim\quickui.vim
-
-" load theme after color plugins have been loaded
-source $HOME\AppData\Local\nvim\theme.vim
+" source vim configuration files
+" After plugins have loaded to prevent errors
+if has('win32') || has('win16')
+    source $HOME\AppData\Local\nvim\format.vim
+    source $HOME\AppData\Local\nvim\html.vim
+    source $HOME\AppData\Local\nvim\keybindings.vim
+    source $HOME\AppData\Local\nvim\quickui.vim
+    source $HOME\AppData\Local\nvim\theme.vim
+else
+    source ~/.config/nvim/format.vim
+    source ~/.config/nvim/html.vim
+    source ~/.config/nvim/keybindings.vim
+    source ~/.config/nvim/quickui.vim
+endif
 " set AsyncRun's encoding to be the same as neovim
 let g:asyncrun_encs = 'gbk'
 
