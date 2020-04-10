@@ -24,10 +24,6 @@ nnoremap Y y$
 " jump to matching pairs with <TAB> in normal mode
 nmap <Tab> %
 
-" Map capital U to Redo.
-noremap U <c-r>
-noremap <c-r> <NOP>
-
 " ASYNCRUN shortcuts/configuration
 " Open Quickfix window at 8 lines height
 let g:asyncrun_open = 8
