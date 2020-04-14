@@ -30,7 +30,7 @@ call quickui#menu#install("&Option", [
 			\ ])
 
 " register HELP menu with weight 1000
-call quickui#menu#install('H&elp', [
+call quickui#menu#install('&Help', [
 			\ ["&Cheatsheet", 'help index', ''],
 			\ ['T&ips', 'help tips', ''],
 			\ ['--',''],
