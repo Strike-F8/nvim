@@ -15,7 +15,7 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" Use Windows clipboard
+" Use OS clipboard
 set clipboard+=unnamedplus
 
 " Yank from current cursor position to end of line
