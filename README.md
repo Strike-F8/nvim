@@ -7,7 +7,7 @@ Feel free to use/modify what you like!
 ### Installation for Windows and Linux
 **If you have already customized your installation of neovim, then don't do this!**
 **It is much better to copy the lines you like into your own config file.**
-##### Tested on Windows 10 and Gallium OS
+##### Tested on Windows 10, Gallium OS, and openSUSE Tumbleweed
 I use the $HOME variable to refer to the home directory of your account.
 
 In Windows, that would be ``` C:\users\<your username> ```
