@@ -3,6 +3,9 @@ if has('win32') || has('win16')
     let g:python3_host_prog = 'C:\Python38\python.exe' 
 endif
 
+" Enable mouse scrolling and selecting in nvim-qt
+set mouse=a
+
 " set backup directory
 set backupdir=$HOME/.vim/backup
 
