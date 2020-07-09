@@ -37,9 +37,6 @@ let g:asyncrun_auto = "make"
 " F10 toggle quickfix window
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 
-" F12 compile single file with SDL
-nnoremap <silent> <F12> :AsyncRun g++ "$(VIM_FILEPATH)" -Wextra -Werror -Wall -O2 -std=c++11 -IC:\Win-builds\SDL\SDL2-2.0.10\x86_64-w64-mingw32\include\SDL2 -LC:\Win-builds\SDL\SDL2-2.0.10\x86_64-w64-mingw32\lib -lmingw32 -lSDL2main -lSDL2 -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-
 " F9 compile single file
 nnoremap <silent> <F9> :AsyncRun g++ -Wextra -Werror -Wall -O2 -std=c++11 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 
