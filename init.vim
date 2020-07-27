@@ -139,25 +139,6 @@ let g:sw_config_dir = "$HOME\\.sqlworkbench"
 " BLOCK SELECTION
 " https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim/1676690#1676690
 
-" The following was taken from https://github.com/optimizacija/neovim-config/blob/master/init.vim
-" ################## Clang format #################
-
-" Clang format - auto formatting
-
-let g:clang_format#command = 'clang-format-3.8'
-let g:clang_format#style_options = {
-			\ "BreakBeforeBraces" : "Attach",
-			\ "UseTab" : "Never",
-			\ "IndentWidth" : 4,
-			\ "ColumnLimit" : 100,
-			\ "AccessModifierOffset" : -4,
-			\ "AllowShortIfStatementsOnASingleLine" : "false",
-			\ "AllowShortFunctionsOnASingleLine" : "false",
-			\}
-" shortcuts for autoformatting an entire C-family file: Ctrl+j
-inoremap <C-j> <Esc>:ClangFormat<CR>a
-nnoremap <C-j> <Esc>:ClangFormat<CR>
-
 " ALE configuration: show the number of errors and warnings in status bar
 " Taken from https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019/
 function! LinterStatus() abort
