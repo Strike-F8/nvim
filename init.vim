@@ -9,27 +9,14 @@ set mouse=a
 " set backup directory
 set backupdir=$HOME/.vim/backup
 
-" TODO: THIS DOESN'T SEEM TO WORK
-" source init.vim from the present working directory
-set exrc
-" Restrict usage of some commands for security reasons
-" because using another init.vim could possibly be risky
-set secure
-
 " vim-plug CONFIG
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
-" neoformat
-Plug 'sbdchd/neoformat'
-
 " vim-javacomplete2: omni-completion plugin for Java
 Plug 'artur-shaik/vim-javacomplete2'
-
-" neomake
-Plug 'neomake/neomake'
 
 " elm-vim: syntax, indentation, build, formatting, etc. for elm-lang
 Plug 'ElmCast/elm-vim'
@@ -90,15 +77,6 @@ filetype plugin indent on    " required
 " javacomplete2 configuration
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " set JAVA_HOME so JDK is used instead of JRE https://stackoverflow.com/a/46885299
-
-" neomake configuration
-autocmd! BufWritePost,BufEnter * Neomake
-
-" neoformat configuration
-augroup astyle
-    autocmd!
-    autocmd BufWritePre * Neoformat
-augroup END
 
 " source vim configuration files
 " After plugins have loaded to prevent errors
