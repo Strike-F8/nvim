@@ -6,6 +6,10 @@ endif
 " Enable mouse scrolling and selecting in nvim-qt
 set mouse=a
 
+" Disable entering visual mode when dragging mouse
+noremap <LeftDrag> <LeftMouse>
+noremap! <LeftDrag> <LeftMouse>
+
 " set backup directory
 set backupdir=$HOME/.vim/backup
 
