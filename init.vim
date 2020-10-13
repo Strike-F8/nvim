@@ -22,6 +22,9 @@ call plug#begin('$HOME/.vim/bundle')
 " autocorrect.vim Autocorrect misspelled words from a predefined list
 Plug 'mitchpaulus/autocorrect.vim'
 
+" vim-smoothie - smooth scrolling!
+Plug 'psliwka/vim-smoothie'
+
 " vim-javacomplete2: omni-completion plugin for Java
 Plug 'artur-shaik/vim-javacomplete2'
 
