@@ -19,6 +19,9 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+" autocorrect.vim Autocorrect misspelled words from a predefined list
+Plug 'mitchpaulus/autocorrect.vim'
+
 " vim-javacomplete2: omni-completion plugin for Java
 Plug 'artur-shaik/vim-javacomplete2'
 
@@ -103,7 +106,19 @@ let g:asyncrun_encs = 'gbk'
 let g:asyncrun_status = "stopped"
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
-" vim-airline configuration
+" AUTO-CORRECT CONFIGURATION
+
+" Load for particular file types
+let g:AutocorrectFiletypes = ["text","markdown"]
+
+" Change auto-correct file location
+if has('win32') || has('win16')
+    let g:AutocorrectPersonalFile='~\AppData\local\nvim\autocorrect.txt'
+else
+    let g:AutocorrectPersonalFile='~/.config/nvim/autocorrect.txt'
+endif
+
+" VIM-AIRLINE CONFIGURATION
 " Display all buffers when only one tab is open
 let g:airline#extensions#tabline#enabled = 1
 

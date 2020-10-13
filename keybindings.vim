@@ -24,6 +24,9 @@ nnoremap Y y$
 " jump to matching pairs with <TAB> in normal mode
 nmap <Tab> %
 
+" Change leader key to period (.)
+let mapleader = "."
+
 " Change the current line to title case (Every first letter is capitalized)
 " Disable search highlighting until the next search so that everything does
 " not become highlighted
