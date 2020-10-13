@@ -24,6 +24,11 @@ nnoremap Y y$
 " jump to matching pairs with <TAB> in normal mode
 nmap <Tab> %
 
+" Change the current line to title case (Every first letter is capitalized)
+" Disable search highlighting until the next search so that everything does
+" not become highlighted
+nnoremap <silent> gG :s/\v<(.)(\w*)/\u\1\L\2/g <bar> :noh<cr>
+
 " ASYNCRUN shortcuts/configuration
 " Open Quickfix window at 8 lines height
 let g:asyncrun_open = 8
