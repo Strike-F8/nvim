@@ -10,6 +10,9 @@ set ignorecase
 " toggle search highlighting with F3
 nnoremap <F3> :set hlsearch!<CR>
 
+" Enter command mode with ; rather than :
+nnoremap ; :
+
 " set directories for backup, swap, and undo
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
