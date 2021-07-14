@@ -215,4 +215,13 @@ endfunction
 nnoremap <A-`> :call ScreenSaver() <cr>
 
 " Open neovim configuration directory in a new vertical buffer
-nnoremap <silent> <C-`> :vnew $HOME\AppData\Local\nvim <cr>
+" Configuration is in a different location depending on OS
+if has("win64") || has("win32") || has("win16")
+    "Windows
+    nnoremap <silent> <C-`> :vnew $HOME\AppData\Local\nvim <cr>
+elseif system('uname -s') == "Darwin\n"
+    "OSX
+    nnoremap <silent> <F4> :vnew ~/.config/nvim<cr>
+else
+    "Linux (Not tested yet)
+    nnoremap <silent> <C-`> ;vnew ~/.config/nvim<cr>
