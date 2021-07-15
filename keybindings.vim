@@ -225,3 +225,4 @@ elseif system('uname -s') == "Darwin\n"
 else
     "Linux (Not tested yet)
     nnoremap <silent> <C-`> ;vnew ~/.config/nvim<cr>
+endif
