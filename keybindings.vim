@@ -3,8 +3,8 @@
 " Exit terminal with ESC
 tnoremap <ESC> <C-\><C-n>
 
-" Exit insert mode with ";sd"
-inoremap ;sd <ESC>
+" Exit insert mode with ";asd"
+inoremap ;asd <ESC>
 
 " ==========SEARCHING===============
 " Ignore case when searching

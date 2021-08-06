@@ -67,6 +67,9 @@ Plug 'flazz/vim-colorschemes'
 " vim-quickui
 Plug 'skywind3000/vim-quickui'
 
+" soywod iris. Email in vim!
+Plug 'soywod/iris.vim'
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
