@@ -184,35 +184,6 @@ nnoremap <C-F8> :call NextColor(1)<CR>
 nnoremap <S-F8> :call NextColor(-1)<CR>
 nnoremap <A-F8> :call NextColor(0)<CR>
 
-" Set color scheme according to current time of day.
-function! s:HourColor()
-  let hr = str2nr(strftime('%H'))
-  if hr <= 3
-    let i = 0
-  elseif hr <= 7
-    let i = 1
-  elseif hr <= 14
-    let i = 2
-  elseif hr <= 18
-    let i = 3
-  else
-    let i = 4
-  endif
-  let nowcolors = 'elflord morning desert evening pablo'
-  execute 'colorscheme '.split(nowcolors)[i]
-  redraw
-  echo g:colors_name
-endfunction
-
-" ALT-` Set neovim to change colors every 10 seconds
-function! ScreenSaver()
-    while 1
-        sleep 10
-        call NextColor(1)
-    endwhile
-endfunction
-
-nnoremap <A-`> :call ScreenSaver() <cr>
 
 " Open neovim configuration directory in a new vertical buffer
 " Configuration is in a different location depending on OS
@@ -223,7 +194,7 @@ if has("win64") || has("win32") || has("win16")
     "Windows
     nnoremap <silent> <C-`> :vnew $HOME\AppData\Local\nvim <cr>
 elseif system('uname -s') == "Darwin\n"
-    "OSX
+    "macOS
     nnoremap <silent> <F4> :vnew ~/.config/nvim<cr>
 else
     "Linux (Not tested yet)
