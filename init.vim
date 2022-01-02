@@ -70,6 +70,19 @@ Plug 'skywind3000/vim-quickui'
 " soywod iris. Email in vim!
 Plug 'soywod/iris.vim'
 
+" ultisnips. Code snippets with tab completion
+Plug 'SirVer/ultisnips'
+
+" vim-snippets. More code snippets for markdown
+Plug 'honza/vim-snippets'
+
+" vim-markdown. Markdown highlighting
+Plug 'plasticboy/vim-markdown'
+
+
+" markdown-preview. Preview markdown file in browser
+Plug 'iamcco/markdown-preview.nvim'
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -138,6 +151,11 @@ let g:airline#extensions#capslock#enabled = 1
 let g:sw_exe = "C:\\tools\\sqlworkbench\\SQLWorkbench.cmd"
 let g:sw_tmp = "/tmp"
 let g:sw_config_dir = "$HOME\\.sqlworkbench"
+
+""" ultisnips configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " BLOCK SELECTION
 " https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim/1676690#1676690
