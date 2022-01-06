@@ -1,6 +1,6 @@
-if has('win32') || has('win16')
-    " Set python location
-    let g:python3_host_prog = 'C:\Python38\python.exe' 
+" Locate python in windows environment
+if has('win64') || has('win32') || has('win16')
+	let g:python3_host_prog = 'C:\Python310\python.exe'
 endif
 
 " Enable mouse scrolling and selecting in nvim-qt
