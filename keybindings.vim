@@ -1,5 +1,19 @@
 " These are my custom keybindings
 
+" Open neovim configuration directory in a new vertical buffer
+" Configuration is in a different location depending on OS
+" but $MYVIMRC is a variable stored by nvim that always leads to the configuration file
+" CTRL-` (back-tick) for Windows and Linux
+" F4 for macOS
+
+if system('uname -s') == "Darwin\n"
+    "macOS (Not tested yet as I no longer have a mac)
+    nnoremap <silent> <F4> :vnew $MYVIMRC/..
+else
+    "Windows and Linux
+    nmap <silent> <C-`> :vnew $MYVIMRC/..<cr>
+endif
+
 " Exit terminal with ESC
 tnoremap <ESC> <C-\><C-n>
 
@@ -183,20 +197,3 @@ endfunction
 nnoremap <C-F8> :call NextColor(1)<CR>
 nnoremap <S-F8> :call NextColor(-1)<CR>
 nnoremap <A-F8> :call NextColor(0)<CR>
-
-
-" Open neovim configuration directory in a new vertical buffer
-" Configuration is in a different location depending on OS
-" CTRL-` (back-tick) for Windows and Linux
-" F4 for OSX
-
-if has("win64") || has("win32") || has("win16")
-    "Windows
-    nnoremap <silent> <C-`> :vnew $HOME\AppData\Local\nvim <cr>
-elseif system('uname -s') == "Darwin\n"
-    "macOS
-    nnoremap <silent> <F4> :vnew ~/.config/nvim<cr>
-else
-    "Linux (Not tested yet)
-    nnoremap <silent> <C-`> :vnew ~/.config/nvim<cr>
-endif

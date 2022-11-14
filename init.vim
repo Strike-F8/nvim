@@ -70,9 +70,6 @@ Plug 'skywind3000/vim-quickui'
 " soywod iris. Email in vim!
 Plug 'soywod/iris.vim'
 
-" ultisnips. Code snippets with tab completion
-Plug 'SirVer/ultisnips'
-
 " vim-snippets. More code snippets for markdown
 Plug 'honza/vim-snippets'
 
