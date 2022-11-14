@@ -30,11 +30,6 @@ nnoremap <F3> :set hlsearch!<CR>
 " Enter command mode with ; rather than :
 nnoremap ; :
 
-" set directories for backup, swap, and undo
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
-
 " Use OS clipboard
 set clipboard+=unnamedplus
 

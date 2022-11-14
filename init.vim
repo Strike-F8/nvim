@@ -10,8 +10,10 @@ set mouse=a
 noremap <LeftDrag> <LeftMouse>
 noremap! <LeftDrag> <LeftMouse>
 
-" set backup directory
-set backupdir=$HOME/.vim/backup
+" set directories for backup, swap, and undo
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " vim-plug CONFIG
 set nocompatible              " be iMproved, required
