@@ -1,6 +1,6 @@
 " Locate python in windows environment
 if has('win64') || has('win32') || has('win16')
-	let g:python3_host_prog = 'C:\Python310\python.exe'
+	let g:python3_host_prog = 'C:\Python311\python.exe'
 endif
 
 " Enable mouse scrolling and selecting in nvim-qt
@@ -78,7 +78,6 @@ Plug 'honza/vim-snippets'
 " vim-markdown. Markdown highlighting
 Plug 'plasticboy/vim-markdown'
 
-
 " markdown-preview. Preview markdown file in browser
 Plug 'iamcco/markdown-preview.nvim'
 
@@ -116,6 +115,7 @@ else
     source ~/.config/nvim/html.vim
     source ~/.config/nvim/keybindings.vim
     source ~/.config/nvim/quickui.vim
+    source ~/.config/nvim/theme.vim
 endif
 " set AsyncRun's encoding to be the same as neovim
 let g:asyncrun_encs = 'gbk'
