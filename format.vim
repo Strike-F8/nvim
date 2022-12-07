@@ -14,3 +14,6 @@ set shiftwidth=4
 
 " Automatically insert line break when text reaches 100th column
 set textwidth=100
+
+" Indentation for yaml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

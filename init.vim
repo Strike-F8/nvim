@@ -24,6 +24,9 @@ call plug#begin('$HOME/.vim/bundle')
 " autocorrect.vim Autocorrect misspelled words from a predefined list
 Plug 'mitchpaulus/autocorrect.vim'
 
+" IndentLine: Display indentation guides in yaml files
+Plug 'Yggdroot/indentLine'
+
 " vim-smoothie - smooth scrolling!
 Plug 'psliwka/vim-smoothie'
 
@@ -123,6 +126,9 @@ let g:asyncrun_encs = 'gbk'
 " display AsyncRun status in vim-airline
 let g:asyncrun_status = "stopped"
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+
+" Configure IndentLine to display a thinner line
+" let g:indentLine_char = '⦙'
 
 " AUTO-CORRECT CONFIGURATION
 
