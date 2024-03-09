@@ -160,6 +160,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+" Configure Omnisharp
+" Enable highlighting in insert mode
+let g:OmniSharp_highlighting = 3
+
 " BLOCK SELECTION
 " https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim/1676690#1676690
 
