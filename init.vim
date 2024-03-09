@@ -182,6 +182,11 @@ function! LinterStatus() abort
 		\)
 endfunction
 
+" do not lint while typing
+let g:ale_lint_on_text_changed = 'never'
+" Integrate ale with airline
+let g:airline#exxtensions#ale#enabled = 1
+
 set statusline=
 set statusline+=%m
 set statusline+=\ %f
