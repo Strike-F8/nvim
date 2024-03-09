@@ -21,6 +21,9 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+" Intellisense for C#
+Plug 'OmniSharp/omnisharp-vim'
+
 " autocorrect.vim Autocorrect misspelled words from a predefined list
 Plug 'mitchpaulus/autocorrect.vim'
 
@@ -32,9 +35,6 @@ Plug 'psliwka/vim-smoothie'
 
 " vim-javacomplete2: omni-completion plugin for Java
 Plug 'artur-shaik/vim-javacomplete2'
-
-" elm-vim: syntax, indentation, build, formatting, etc. for elm-lang
-Plug 'ElmCast/elm-vim'
 
 " vim-surround: Easily edit surrounding quotes and parentheses
 Plug 'tpope/vim-surround'
@@ -72,9 +72,6 @@ Plug 'flazz/vim-colorschemes'
 " vim-quickui
 Plug 'skywind3000/vim-quickui'
 
-" soywod iris. Email in vim!
-Plug 'soywod/iris.vim'
-
 " vim-snippets. More code snippets for markdown
 Plug 'honza/vim-snippets'
 
@@ -87,6 +84,7 @@ Plug 'iamcco/markdown-preview.nvim'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
+syntax enable
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
