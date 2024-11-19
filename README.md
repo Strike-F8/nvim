@@ -26,7 +26,7 @@ However, you can substitute "~"(tilde) for $HOME and it should work fine.
 
 3. Clone this repository
 
-``` git clone https://github.com/Strike-F8/nvim.git ```
+``` git clone https://gitlab.com/Strike_F8/nvim.git ```
 
 4. Create backup, swap, and bundle directories
 
