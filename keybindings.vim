@@ -39,9 +39,6 @@ nnoremap Y y$
 " jump to matching pairs with <TAB> in normal mode
 nmap <Tab> %
 
-" Change leader key to period (.)
-let mapleader = "."
-
 " Change the current line to title case (Every first letter is capitalized)
 " Disable search highlighting until the next search so that everything does
 " not become highlighted
@@ -192,3 +189,34 @@ endfunction
 nnoremap <C-F8> :call NextColor(1)<CR>
 nnoremap <S-F8> :call NextColor(-1)<CR>
 nnoremap <A-F8> :call NextColor(0)<CR>
+
+" Buffer switching from normal mode using leader key (\)
+" Switch to next buffer
+nnoremap <leader>l :bn<CR>
+" Switch to previous buffer
+nnoremap <leader>j :bp<CR>
+
+" Tab switching using leader key (\)
+" Switch to tab 1
+nnoremap <leader>1 :tabn 1<CR>
+" Switch to tab 2
+nnoremap <leader>2 :tabn 2<CR>
+" Switch to tab 3
+nnoremap <leader>3 :tabn 3<CR>
+" Switch to tab 4
+nnoremap <leader>4 :tabn 4<CR>
+" Switch to tab 5
+nnoremap <leader>5 :tabn 5<CR>
+" Switch to tab 6
+nnoremap <leader>6 :tabn 6<CR>
+" Switch to tab 7
+nnoremap <leader>7 :tabn 7<CR>
+" Switch to tab 8
+nnoremap <leader>8 :tabn 8<CR>
+" Switch to tab 9
+nnoremap <leader>9 :tabn 9<CR>
+
+" Switch to next tab
+nnoremap <leader>f :tabnext<CR>
+" Switch to previous tab
+nnoremap <leader>f :tabprev<CR>
