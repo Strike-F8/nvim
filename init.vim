@@ -197,7 +197,7 @@ filetype on
 " Automatically change directory when opening files, changing buffers etc
 set autochdir
 
-" Disable spell check for IFC (.ifc) files and set ifc as express file type
+" Disable spell check for IFC (.ifc) files
 autocmd BufRead,BufNewFile *.ifc set filetype=ifc
 augroup DisableSpellforIFC
     autocmd!
