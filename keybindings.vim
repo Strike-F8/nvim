@@ -120,3 +120,6 @@ nnoremap <leader>9 :tabn 9<CR>
 nnoremap <leader>f :tabnext<CR>
 " Switch to previous tab
 nnoremap <leader>f :tabprev<CR>
+
+" Open markdown preview using previm
+nnoremap <leader>p :PrevimOpen<CR>

@@ -82,7 +82,7 @@ Plug 'honza/vim-snippets'
 Plug 'plasticboy/vim-markdown'
 
 " markdown-preview. Preview markdown file in browser
-Plug 'iamcco/markdown-preview.nvim'
+Plug 'previm/previm'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -206,3 +206,7 @@ augroup DisableSpellforIFC
     autocmd!
     autocmd FileType ifc setlocal nospell
 augroup END
+
+" previm config
+let g:previm_open_cmd = 'start "" "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"'
+
