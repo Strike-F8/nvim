@@ -24,6 +24,9 @@ call plug#begin('$HOME/.vim/bundle')
 " Intellisense for C#
 Plug 'OmniSharp/omnisharp-vim'
 
+" IFC file syntax highlighting
+Plug 'https://gitlab.com/Strike_F8/ifc-vim'
+
 " autocorrect.vim Autocorrect misspelled words from a predefined list
 Plug 'mitchpaulus/autocorrect.vim'
 
