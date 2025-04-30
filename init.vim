@@ -21,6 +21,9 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+" Better python folding
+Plug 'tmhedberg/SimplyFold'
+
 " Intellisense for C#
 Plug 'OmniSharp/omnisharp-vim'
 
@@ -210,3 +213,7 @@ augroup END
 " previm config
 let g:previm_open_cmd = 'start "" "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"'
 
+" Enable folding
+set foldenable
+set foldmethod=indent
+set foldlevel=99
