@@ -22,7 +22,7 @@ filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
 " Better python folding
-Plug 'tmhedberg/SimplyFold'
+Plug 'tmhedberg/SimpylFold'
 
 " Intellisense for C#
 Plug 'OmniSharp/omnisharp-vim'
@@ -84,8 +84,78 @@ Plug 'honza/vim-snippets'
 " vim-markdown. Markdown highlighting
 Plug 'plasticboy/vim-markdown'
 
-" markdown-preview. Preview markdown file in browser
-Plug 'previm/previm'
+" markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown'  }
+
+" Code completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Smooth scrolling
+Plug 'yonchu/accelerated-smooth-scroll'
+
+" File navigation
+Plug 'lokaltog/vim-easymotion'
+
+" Git support
+Plug 'tpope/vim-fugitive'
+
+" Github support
+Plug 'tpope/vim-rhubarb'
+
+" Allow repetition of plugin mappings
+Plug 'tpope/vim-repeat'
+
+" Commenting plugin
+Plug 'tpope/vim-commentary'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Display diff symbols
+Plug 'mhinz/vim-signify'
+
+    " FileTree navigator
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggleVCS' }
+
+    " Nerdtree plugin to show git status
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+
+    " Add developer icons
+    Plug 'ryanoasis/vim-devicons'
+
+" Automatically set cwd
+Plug 'airblade/vim-rooter'
+
+" View LSP Symbols
+Plug 'liuchengxu/vista.vim'
+
+" Semantic Highlighting for C/C++
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+" Pulse the line after a search
+Plug 'danilamihailov/beacon.nvim'
+
+" Highlight word under the cursor
+Plug 'RRethy/vim-illuminate'
+
+" Limelight
+Plug 'junegunn/limelight.vim'
+
+" CMake support
+Plug 'cdelledonne/vim-cmake'
+
+" Org-mode for vim
+Plug 'jceb/vim-orgmode'
+
+" Undo tree
+Plug 'sjl/gundo.vim'
+
+" Print documents in the echo area
+Plug 'Shougo/echodoc.vim'
+
+" Add common snippets
+Plug 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -217,3 +287,39 @@ let g:previm_open_cmd = 'start "" "C:\Program Files\BraveSoftware\Brave-Browser\
 set foldenable
 set foldmethod=indent
 set foldlevel=99
+
+" Give more space for displaying messages
+set cmdheight=2
+
+" Use file names as title of terminal while editing
+set title
+
+" Ignore certain file types and directories from fuzzy finding
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,*.hdr
+set wildignore+=node_modules/*,target/*
+
+" Make searches case insensitive
+set ignorecase
+
+" Override ignorecase option if search contains uppercase characters
+set smartcase
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Wrapping options
+set formatoptions=tc " Wrap text and comments using textwidth
+set formatoptions+=r " Continue comments when pressing ENTER in insert mode
+set formatoptions+=q " Enable formatting of comments with qg
+set formatoptions+=n " Detect lists for formatting
+set formatoptions+=b " Auto-wrap in insert mode, and do not wrap old long lines
+
+" Always show the signcolumn
+set signcolumn=yes
+
+" Enable 24-bit RGB color in the TUI
+set termguicolors

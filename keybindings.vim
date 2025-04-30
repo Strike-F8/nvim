@@ -90,6 +90,3 @@ nnoremap <leader>f :tabprev<CR>
 
 " Open markdown preview using previm
 nnoremap <leader>p :PrevimOpen<CR>
-
-" Fold lines with spacebar
-nnoremap <space> za
