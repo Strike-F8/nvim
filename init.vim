@@ -108,9 +108,12 @@ Plug 'tpope/vim-repeat'
 " Commenting plugin
 Plug 'tpope/vim-commentary'
 
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Ignore fzf if cmake is not installed 
+if executable("cmake")
+    " Fuzzy finder
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+endif
 
 " Display diff symbols
 Plug 'mhinz/vim-signify'
