@@ -1,6 +1,6 @@
 " Locate python in windows environment
 if has('win64') || has('win32') || has('win16')
-	let g:python3_host_prog = 'C:\Python311\python.exe'
+	let g:python3_host_prog = 'C:\anaconda3\envs\neovim\python.exe'
 endif
 
 " Enable mouse scrolling and selecting in nvim-qt
