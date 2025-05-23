@@ -6,6 +6,10 @@ endif
 " Enable mouse scrolling and selecting in nvim-qt
 set mouse=a
 
+" Scroll before hitting the edge of the window
+set scrolloff=5
+set sidescrolloff=5
+
 " Disable entering visual mode when dragging mouse
 noremap <LeftDrag> <LeftMouse>
 noremap! <LeftDrag> <LeftMouse>
