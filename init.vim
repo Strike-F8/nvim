@@ -25,6 +25,9 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+" Better json support
+Plug 'VPavliashvili/json-nvim'
+
 " Better python folding
 Plug 'tmhedberg/SimpylFold'
 
