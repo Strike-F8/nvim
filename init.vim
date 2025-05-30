@@ -25,6 +25,10 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+
+" tom language syntax highlighting
+Plug 'https://gitlab.com/Strike_F8/tom-vim'
+
 " Better json support
 Plug 'VPavliashvili/json-nvim'
 
@@ -115,13 +119,6 @@ Plug 'tpope/vim-repeat'
 " Commenting plugin
 Plug 'tpope/vim-commentary'
 
-" Ignore fzf if cmake is not installed 
-if executable("cmake")
-    " Fuzzy finder
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-endif
-
 " Display diff symbols
 Plug 'mhinz/vim-signify'
 
@@ -140,9 +137,6 @@ Plug 'airblade/vim-rooter'
 " View LSP Symbols
 Plug 'liuchengxu/vista.vim'
 
-" Semantic Highlighting for C/C++
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-
 " Pulse the line after a search
 Plug 'danilamihailov/beacon.nvim'
 
@@ -151,9 +145,6 @@ Plug 'RRethy/vim-illuminate'
 
 " Limelight
 Plug 'junegunn/limelight.vim'
-
-" CMake support
-Plug 'cdelledonne/vim-cmake'
 
 " Org-mode for vim
 Plug 'jceb/vim-orgmode'
