@@ -1,6 +1,6 @@
 " Locate python in windows environment
 if has('win64') || has('win32') || has('win16')
-	let g:python3_host_prog = 'C:\anaconda3\envs\neovim\python.exe'
+    let g:python3_host_prog = '~/AppData/Local/miniconda3/envs/neovim/python.exe'
 endif
 
 " Enable mouse scrolling and selecting in nvim-qt
@@ -24,7 +24,6 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
-
 
 " tom language syntax highlighting
 Plug 'https://gitlab.com/Strike_F8/tom-vim'
@@ -199,8 +198,8 @@ endif
 let g:asyncrun_encs = 'gbk'
 
 " display AsyncRun status in vim-airline
-let g:asyncrun_status = "stopped"
-let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+"let g:asyncrun_status = "stopped"
+"let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 " Configure IndentLine to display a thinner line
 " let g:indentLine_char = '⦙'
@@ -231,11 +230,6 @@ let g:airline#extensions#capslock#enabled = 1
 let g:sw_exe = "C:\\tools\\sqlworkbench\\SQLWorkbench.cmd"
 let g:sw_tmp = "/tmp"
 let g:sw_config_dir = "$HOME\\.sqlworkbench"
-
-""" ultisnips configuration
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Configure Omnisharp
 " Enable highlighting in insert mode
@@ -274,13 +268,6 @@ filetype on
 " Automatically change directory when opening files, changing buffers etc
 set autochdir
 
-" Disable spell check for IFC (.ifc) files
-autocmd BufRead,BufNewFile *.ifc set filetype=ifc
-augroup DisableSpellforIFC
-    autocmd!
-    autocmd FileType ifc setlocal nospell
-augroup END
-
 " previm config
 let g:previm_open_cmd = 'start "" "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"'
 
@@ -305,10 +292,6 @@ set ignorecase
 " Override ignorecase option if search contains uppercase characters
 set smartcase
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
@@ -318,9 +301,6 @@ set formatoptions+=r " Continue comments when pressing ENTER in insert mode
 set formatoptions+=q " Enable formatting of comments with qg
 set formatoptions+=n " Detect lists for formatting
 set formatoptions+=b " Auto-wrap in insert mode, and do not wrap old long lines
-
-" Always show the signcolumn
-set signcolumn=yes
 
 " Enable 24-bit RGB color in the TUI
 set termguicolors
