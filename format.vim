@@ -3,8 +3,11 @@
 
 " fully support utf-8
 set encoding=utf-8
+
+" set fileencoding=utf-8 " For new files
+
 " Support for various encodings. Neovim should automatically detect the encoding
-set fileencodings=ucs-bom,utf-8,sjis,latin1
+set fileencodings=ucs-bom,utf-8,sjis,euc-jp,latin1
 
 " show line number and relative line number
 set number
