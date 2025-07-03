@@ -12,9 +12,6 @@ call matchadd('ColorColumn', '¥(¥%80v¥|¥%100v¥)')
 " highlight closing bracket for tags
 set matchpairs+=<:>
 
-" Enable spell checker
-set spell
-
 " Support for .ejs files
 au BufNewFile,BufRead *.ejs set filetype=html.js
 

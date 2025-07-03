@@ -4,6 +4,9 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+" csv/csv like filetype highlighting
+Plug 'mechatroner/rainbow_csv'
+
 " tom language syntax highlighting
 Plug 'https://gitlab.com/Strike_F8/tom-vim'
 

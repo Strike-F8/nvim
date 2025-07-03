@@ -25,3 +25,5 @@ set formatoptions+=r " Continue comments when pressing ENTER in insert mode
 set formatoptions+=q " Enable formatting of comments with qg
 set formatoptions+=n " Detect lists for formatting
 set formatoptions+=b " Auto-wrap in insert mode, and do not wrap old long lines
+
+set nospell
