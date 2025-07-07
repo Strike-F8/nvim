@@ -3,15 +3,15 @@
 " Open neovim configuration directory in a new vertical buffer
 " Configuration is in a different location depending on OS
 " but $MYVIMRC is a variable stored by nvim that always leads to the configuration file
-" CTRL-` (back-tick) for Windows and Linux
+" CTRL-A (back-tick) for Windows and Linux
 " F4 for macOS
 
 if system('uname -s') == "Darwin\n"
     "macOS (Not tested yet as I no longer have a mac)
-    nnoremap <silent> <F4> :vnew $MYVIMRC/..
+    nnoremap <silent> <F4> :vnew $MYVIMRC/..<cr>
 else
     "Windows and Linux
-    nmap <silent> <C-`> :vnew $MYVIMRC/..<cr>
+    nnoremap <silent> <C-A> :vnew $MYVIMRC/..<cr>
 endif
 
 " Exit terminal with ESC
@@ -40,9 +40,8 @@ nnoremap Y y$
 nmap <Tab> %
 
 " Change the current line to title case (Every first letter is capitalized)
-" Disable search highlighting until the next search so that everything does
-" not become highlighted
-nnoremap <silent> gG :s/\v<(.)(\w*)/\u\1\L\2/g <bar> :noh<cr>
+" Clear the search register afterwards so that not everything becomes highlighted
+nnoremap <silent> gG :s/\v<(.)(\w*)/\u\1\L\2/g <bar> :let @/ = ''<cr>
 
 " ASYNCRUN shortcuts/configuration
 " Open Quickfix window at 8 lines height
@@ -87,6 +86,3 @@ nnoremap <leader>9 :tabn 9<CR>
 nnoremap <leader>f :tabnext<CR>
 " Switch to previous tab
 nnoremap <leader>f :tabprev<CR>
-
-" Open markdown preview using previm
-nnoremap <leader>p :PrevimOpen<CR>

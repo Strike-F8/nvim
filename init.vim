@@ -1,4 +1,5 @@
 " Locate python in windows environment
+" Assumes neovim's python is located within a conda virtual environment named "neovim"
 if has('win64') || has('win32') || has('win16')
     let g:python3_host_prog = '~/AppData/Local/miniconda3/envs/neovim/python.exe'
 endif
@@ -20,7 +21,7 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 " source plugins.init to load plugins before loading other config files
-if has('win32') || has('win16')
+if has('win64') || has('win32') || has('win16')
     source $HOME\AppData\Local\nvim\plugins.vim
 else
     source ~/.config/nvim/plugins.vim
@@ -28,7 +29,7 @@ endif
 
 " source vim configuration files
 " After plugins have loaded to prevent errors
-if has('win32') || has('win16')
+if has('win64') || has('win32') || has('win16')
     source $HOME\AppData\Local\nvim\format.vim
     source $HOME\AppData\Local\nvim\html.vim
     source $HOME\AppData\Local\nvim\keybindings.vim
@@ -47,7 +48,7 @@ set foldenable
 set foldmethod=indent
 set foldlevel=99
 
-" Give more space for displaying messages
+" Give more space for displaying messages at the bottom
 set cmdheight=2
 
 " Use file names as title of terminal while editing
