@@ -4,6 +4,10 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+" Better directory view
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+
 " csv/csv like filetype highlighting
 Plug 'mechatroner/rainbow_csv'
 
@@ -235,7 +239,39 @@ filetype on
 " Automatically change directory when opening files, changing buffers etc
 set autochdir
 
-" previm config
-let g:previm_open_cmd = 'start "" "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"'
+" nvim-tree config
+nnoremap <silent> <C-n> :NvimTreeToggle<CR>
+" Lua setup block
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
+require("nvim-tree").setup({
+  sort = {
+      sorter = "case_sensitive",
+  },
+  view = {
+      width = 30,
+  },
+  renderer = {
+    highlight_git = true,
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+    },
+  },
+  git = {
+    enable = true,
+    ignore = false,
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
+})
+EOF
 

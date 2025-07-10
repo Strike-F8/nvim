@@ -5,11 +5,12 @@ call quickui#menu#reset()
 call quickui#menu#install('&File', [
             \ [ "&New File\tCtrl+n", 'echo 0' ],
             \ [ "&Open File\t(F3)", 'echo 1' ],
-            \ [ "&Close", 'echo 2' ],
+            \ [ "&Close", ':q<CR>' ],
+            \ [ "&Toggle Nvim-Tree", ':NvimTreeToggle<CR>' ],
             \ [ "--", '' ],
-            \ [ "&Save\tCtrl+s", 'echo 3'],
-            \ [ "Save &As", 'echo 4' ],
-            \ [ "Save All", 'echo 5' ],
+            \ [ "&Save\tCtrl+s", ':w<CR>'],
+            \ [ "Save &As", ':saveas ' ],
+            \ [ "Save All", ':wa<CR>' ],
             \ [ "--", '' ],
             \ [ "E&xit\tAlt+x", 'echo 6' ],
             \ ])
