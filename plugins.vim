@@ -86,9 +86,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'ma
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Smooth scrolling
-Plug 'yonchu/accelerated-smooth-scroll'
-
 " File navigation
 Plug 'lokaltog/vim-easymotion'
 
@@ -106,15 +103,6 @@ Plug 'tpope/vim-commentary'
 
 " Display diff symbols
 Plug 'mhinz/vim-signify'
-
-    " FileTree navigator
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggleVCS' }
-
-    " Nerdtree plugin to show git status
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-
-    " Add developer icons
-    Plug 'ryanoasis/vim-devicons'
 
 " Automatically set cwd
 Plug 'airblade/vim-rooter'

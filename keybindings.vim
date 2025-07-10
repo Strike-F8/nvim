@@ -86,3 +86,37 @@ nnoremap <leader>9 :tabn 9<CR>
 nnoremap <leader>f :tabnext<CR>
 " Switch to previous tab
 nnoremap <leader>f :tabprev<CR>
+
+" coc.vim code completion keybindings
+
+" Use <Tab> for completion and snippets
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Trigger completion manually with <C-Space>
+inoremap <silent><expr> <C-Space> coc#refresh()
+
+" Use `[g` and `]g` to jump diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Go to definition, type definition, implementation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+
+" Auto highlight symbol under cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
