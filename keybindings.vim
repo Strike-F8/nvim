@@ -39,6 +39,9 @@ nnoremap Y y$
 " jump to matching pairs with <TAB> in normal mode
 nmap <Tab> %
 
+" jump to matching pairs with <TAB> in visual mode
+vmap <Tab> %
+
 " Change the current line to title case (Every first letter is capitalized)
 " Clear the search register afterwards so that not everything becomes highlighted
 nnoremap <silent> gG :s/\v<(.)(\w*)/\u\1\L\2/g <bar> :let @/ = ''<cr>
