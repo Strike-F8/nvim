@@ -14,6 +14,9 @@ else
     nnoremap <silent> <C-A> :vnew $MYVIMRC/..<cr>
 endif
 
+" Open the directory of the current buffer in a vertical split
+nnoremap <silent> . :execute 'vnew ' . expand('%:p:h')<CR>
+
 " Exit terminal with ESC
 tnoremap <ESC> <C-\><C-n>
 
@@ -36,17 +39,17 @@ set clipboard+=unnamedplus
 " Yank from current cursor position to end of line
 nnoremap Y y$
 
-" jump to matching pairs with <TAB> in normal mode
+" jump to matching pairs with <TAB>
 nmap <Tab> %
-
-" jump to matching pairs with <TAB> in visual mode
 vmap <Tab> %
 
 " Go to the first character in the line
 nmap g8 ^
+vmap g8 ^
 
 " Go to the last character in the line
 nmap g9 $
+vmap g9 $
 
 " Change the current line to title case (Every first letter is capitalized)
 " Clear the search register afterwards so that not everything becomes highlighted
