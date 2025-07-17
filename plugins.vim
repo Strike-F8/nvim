@@ -4,10 +4,14 @@ filetype off                  " required
 
 call plug#begin('$HOME/.vim/bundle')
 
+" scrollbar\stripe on right side
+Plug 'petertriho/nvim-scrollbar'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'kevinhwang91/nvim-hlslens'
+
 " Better directory view
 " Plug 'nvim-tree/nvim-web-devicons'
 " Plug 'nvim-tree/nvim-tree.lua'
-
 Plug 'preservim/nerdtree'
 
 " csv/csv like filetype highlighting
@@ -15,6 +19,9 @@ Plug 'mechatroner/rainbow_csv'
 
 " tom language syntax highlighting
 Plug 'https://gitlab.com/Strike_F8/tom-vim'
+
+" tpf file syntax highlighting
+Plug 'https://gitlab.com/Strike_F8/tpf-vim'
 
 " Better json support
 Plug 'VPavliashvili/json-nvim'
@@ -228,3 +235,10 @@ filetype on
 
 " Automatically change directory when opening files, changing buffers etc
 set autochdir
+
+" Enable nvim-scrollbar
+lua << EOF
+require("gitsigns").setup()
+require("scrollbar.handlers.gitsigns").setup()
+require("scrollbar").setup()
+EOF
