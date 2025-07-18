@@ -1,13 +1,11 @@
-" These are my custom keybindings
-
 " Open neovim configuration directory in a new vertical buffer
 " Configuration is in a different location depending on OS
 " but $MYVIMRC is a variable stored by nvim that always leads to the configuration file
-" CTRL-A (back-tick) for Windows and Linux
-" F4 for macOS
+" CTRL-A for Windows and Linux
+" F4 for MacOS
 
 if system('uname -s') == "Darwin\n"
-    "macOS (Not tested yet as I no longer have a mac)
+    "MacOS (Not tested yet as I no longer have a mac)
     nnoremap <silent> <F4> :vnew $MYVIMRC/..<cr>
 else
     "Windows and Linux
@@ -66,6 +64,7 @@ let g:asyncrun_bell = 1
 let g:asyncrun_auto = "make"
 
 " F10 toggle quickfix window
+" TODO: open terminal in VS Code
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 
 " Buffer switching from normal mode using leader key (\)
@@ -98,37 +97,3 @@ nnoremap <leader>9 :tabn 9<CR>
 nnoremap <leader>f :tabnext<CR>
 " Switch to previous tab
 nnoremap <leader>f :tabprev<CR>
-
-" coc.vim code completion keybindings
-
-" Use <Tab> for completion and snippets
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-" Trigger completion manually with <C-Space>
-inoremap <silent><expr> <C-Space> coc#refresh()
-
-" Use `[g` and `]g` to jump diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Go to definition, type definition, implementation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation
-nnoremap <silent> K :call CocActionAsync('doHover')<CR>
-
-" Auto highlight symbol under cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
-

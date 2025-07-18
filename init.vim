@@ -20,27 +20,37 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" source plugins.init to load plugins before loading other config files
-if has('win64') || has('win32') || has('win16')
-    source $HOME\AppData\Local\nvim\plugins.vim
-else
-    source ~/.config/nvim/plugins.vim
-endif
+if !exists('$VSCODE_PID')
+    " Do not load plugins if running in VS Code
+    " source plugins.init to load plugins before loading other config files
+    if has('win64') || has('win32') || has('win16')
+	source $HOME\AppData\Local\nvim\plugins.vim
+    else
+	source ~/.config/nvim/plugins.vim
+    endif
 
-" source vim configuration files
-" After plugins have loaded to prevent errors
-if has('win64') || has('win32') || has('win16')
-    source $HOME\AppData\Local\nvim\format.vim
-    source $HOME\AppData\Local\nvim\html.vim
-    source $HOME\AppData\Local\nvim\keybindings.vim
-    source $HOME\AppData\Local\nvim\quickui.vim
-    source $HOME\AppData\Local\nvim\theme.vim
+    " source vim configuration files
+    " After plugins have loaded to prevent errors
+    if has('win64') || has('win32') || has('win16')
+	source $HOME\AppData\Local\nvim\format.vim
+	source $HOME\AppData\Local\nvim\html.vim
+	source $HOME\AppData\Local\nvim\keybindings.vim
+	source $HOME\AppData\Local\nvim\quickui.vim
+	source $HOME\AppData\Local\nvim\theme.vim
+    else
+	source ~/.config/nvim/format.vim
+	source ~/.config/nvim/html.vim
+	source ~/.config/nvim/keybindings.vim
+	source ~/.config/nvim/quickui.vim
+	source ~/.config/nvim/theme.vim
+    endif
 else
-    source ~/.config/nvim/format.vim
-    source ~/.config/nvim/html.vim
-    source ~/.config/nvim/keybindings.vim
-    source ~/.config/nvim/quickui.vim
-    source ~/.config/nvim/theme.vim
+    " If running in VS Code only load keybindings
+    if has('win64') || has('win32') || has('win16')
+	source $HOME\AppData\Local\nvim\keybindings.vim
+    else
+	source ~/.config/nvim/keybindings.vim
+    endif
 endif
 
 " Enable folding

@@ -1,7 +1,6 @@
 " vim-plug CONFIG
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 call plug#begin('$HOME/.vim/bundle')
 
 " scrollbar\stripe on right side
@@ -237,8 +236,6 @@ filetype on
 set autochdir
 
 " Enable nvim-scrollbar
-lua << EOF
-require("gitsigns").setup()
-require("scrollbar.handlers.gitsigns").setup()
-require("scrollbar").setup()
-EOF
+lua require("gitsigns").setup()
+lua require("scrollbar.handlers.gitsigns").setup()
+lua require("scrollbar").setup()
