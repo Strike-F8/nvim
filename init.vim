@@ -37,12 +37,14 @@ if !exists('$VSCODE_PID')
 	source $HOME\AppData\Local\nvim\keybindings.vim
 	source $HOME\AppData\Local\nvim\quickui.vim
 	source $HOME\AppData\Local\nvim\theme.vim
+	source $HOME\AppData\Local\nvim\coc.vim
     else
 	source ~/.config/nvim/format.vim
 	source ~/.config/nvim/html.vim
 	source ~/.config/nvim/keybindings.vim
 	source ~/.config/nvim/quickui.vim
 	source ~/.config/nvim/theme.vim
+	source ~/.config/nvim/coc.vim
     endif
 else
     " If running in VS Code only load keybindings

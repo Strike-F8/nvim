@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" rainbow parentheses
+Plug 'kien/rainbow_parentheses.vim'
+
 " scrollbar\stripe on right side
 Plug 'petertriho/nvim-scrollbar'
 Plug 'lewis6991/gitsigns.nvim'
@@ -239,3 +242,26 @@ set autochdir
 lua require("gitsigns").setup()
 lua require("scrollbar.handlers.gitsigns").setup()
 lua require("scrollbar").setup()
+
+" Rainbow parentheses config
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_loadcmd_toggle = 0
+let g:rbpt_max = 16
