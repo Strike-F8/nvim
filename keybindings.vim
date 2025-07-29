@@ -9,7 +9,7 @@ if system('uname -s') == "Darwin\n"
     nnoremap <silent> <F4> :vnew $MYVIMRC/..<cr>
 else
     "Windows and Linux
-    nnoremap <silent> <C-A> :vnew $MYVIMRC/..<cr>
+    nnoremap <silent> <C-A> :vnew $MYVIMRC<cr>
 endif
 
 " Open the directory of the current buffer in a vertical split
