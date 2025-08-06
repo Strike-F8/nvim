@@ -47,11 +47,48 @@ if !exists('$VSCODE_PID')
 	source ~/.config/nvim/coc.vim
     endif
 else
-    " If running in VS Code only load keybindings
+    " If running in VS Code, only load keybindings
     if has('win64') || has('win32') || has('win16')
 	source $HOME\AppData\Local\nvim\keybindings.vim
     else
 	source ~/.config/nvim/keybindings.vim
+    endif
+
+    " Load select plugins
+    set nocompatible
+    filetype off
+    call plug#begin('$HOME/.vim/bundle')
+
+    " Easy undo history
+    Plug 'mbbill/undotree'
+
+    call plug#end()            " required
+    filetype plugin indent on    " required
+    syntax enable
+
+    " Undo tree config
+    nnoremap t :UndotreeToggle<CR>
+
+    " Show a full-width diff window at the bottom
+    if !exists('g:undotree_WindowLayout')
+	let g:undotree_WindowLayout = 2
+    endif
+
+    " On windows, use a supported command for diffing files
+    if has('win64') || has('win32') || has('win16')
+	let g:undotree_DiffCommand = "FC"
+    endif
+
+    " Persistent undo across sessions
+    if has("persistent_undo")
+	let undo_path = expand('~/.undotree')
+
+	if !isdirectory(undo_path)
+	    call mkdir(undo_path, "p", 0700)
+	endif
+
+	let &undodir=undo_path
+	set undofile
     endif
 endif
 
