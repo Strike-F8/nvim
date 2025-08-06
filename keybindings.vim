@@ -97,3 +97,8 @@ nnoremap <leader>9 :tabn 9<CR>
 nnoremap <leader>f :tabnext<CR>
 " Switch to previous tab
 nnoremap <leader>f :tabprev<CR>
+
+" Open a separate terminal in the current directory
+if has('win64') || has('win32') || has('win16')
+    nnoremap T :!start powershell -NoExit -Command ""<CR>
+endif
