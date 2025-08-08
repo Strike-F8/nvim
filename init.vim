@@ -20,18 +20,12 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-if !exists('$VSCODE_PID')
-    " Do not load plugins if running in VS Code
-    " source plugins.init to load plugins before loading other config files
-    if has('win64') || has('win32') || has('win16')
-	source $HOME\AppData\Local\nvim\plugins.vim
-    else
-	source ~/.config/nvim/plugins.vim
-    endif
+if !exists('$VSCODE_PID') " If not running in VS Code, load normally
 
     " source vim configuration files
-    " After plugins have loaded to prevent errors
+    " Load plugins first to prevent errors
     if has('win64') || has('win32') || has('win16')
+	source $HOME\AppData\Local\nvim\plugins.vim
 	source $HOME\AppData\Local\nvim\format.vim
 	source $HOME\AppData\Local\nvim\html.vim
 	source $HOME\AppData\Local\nvim\keybindings.vim
@@ -39,6 +33,7 @@ if !exists('$VSCODE_PID')
 	source $HOME\AppData\Local\nvim\theme.vim
 	source $HOME\AppData\Local\nvim\coc.vim
     else
+	source ~/.config/nvim/plugins.vim
 	source ~/.config/nvim/format.vim
 	source ~/.config/nvim/html.vim
 	source ~/.config/nvim/keybindings.vim
@@ -47,48 +42,11 @@ if !exists('$VSCODE_PID')
 	source ~/.config/nvim/coc.vim
     endif
 else
-    " If running in VS Code, only load keybindings
+    " If running in vscode, load vsinit.vim
     if has('win64') || has('win32') || has('win16')
-	source $HOME\AppData\Local\nvim\keybindings.vim
+	source $HOME\AppData\Local\nvim\vsinit.vim
     else
-	source ~/.config/nvim/keybindings.vim
-    endif
-
-    " Load select plugins
-    set nocompatible
-    filetype off
-    call plug#begin('$HOME/.vim/bundle')
-
-    " Easy undo history
-    Plug 'mbbill/undotree'
-
-    call plug#end()            " required
-    filetype plugin indent on    " required
-    syntax enable
-
-    " Undo tree config
-    nnoremap t :UndotreeToggle<CR>
-
-    " Show a full-width diff window at the bottom
-    if !exists('g:undotree_WindowLayout')
-	let g:undotree_WindowLayout = 2
-    endif
-
-    " On windows, use a supported command for diffing files
-    if has('win64') || has('win32') || has('win16')
-	let g:undotree_DiffCommand = "FC"
-    endif
-
-    " Persistent undo across sessions
-    if has("persistent_undo")
-	let undo_path = expand('~/.undotree')
-
-	if !isdirectory(undo_path)
-	    call mkdir(undo_path, "p", 0700)
-	endif
-
-	let &undodir=undo_path
-	set undofile
+	source ~/.config/nvim/vsinit.vim
     endif
 endif
 

@@ -9,6 +9,9 @@ Plug 'mbbill/undotree'
 " rainbow parentheses
 Plug 'kien/rainbow_parentheses.vim'
 
+" Multiple cursors
+Plug 'mg979/vim-visual-multi'
+
 " scrollbar\stripe on right side
 Plug 'petertriho/nvim-scrollbar'
 Plug 'lewis6991/gitsigns.nvim'
@@ -46,7 +49,7 @@ Plug 'mitchpaulus/autocorrect.vim'
 " IndentLine: Display indentation guides in yaml files
 Plug 'Yggdroot/indentLine'
 
-" vim-smoothie - smooth scrolling!
+" vim-moothie - smooth scrolling!
 Plug 'psliwka/vim-smoothie'
 
 " vim-javacomplete2: omni-completion plugin for Java
@@ -293,3 +296,25 @@ if has("persistent_undo")
     let &undodir=undo_path
     set undofile
 endif
+ 
+let g:VM_theme = 'iceblue'
+" 'iceblue', 'olive', 'codedark', 'sand'
+
+let g:VM_default_mappings = 0
+
+let g:VM_maps = {}
+let g:VM_maps["Find Under"]         = '<C-n>'
+let g:VM_maps["Find Subword Under"] = '<C-n>'
+let g:VM_maps["Select All"]         = '\\A' 
+let g:VM_maps["Start Regex Search"] = '\\/'
+let g:VM_maps["Add Cursor Down"]    = '<c-j>'
+let g:VM_maps["Add Cursor Up"]      = '<c-k>' 
+let g:VM_maps["Select Cursor Down"] = '<C-S-j>'
+let g:VM_maps["Select Cursor Up"]   ='<C-S-k>'
+let g:VM_maps["Add Cursor At Pos"]  = '\\\'
+
+let g:VM_maps["Visual Regex"]       = '\\/'
+let g:VM_maps["Visual All"]         = '\\A' 
+let g:VM_maps["Visual Add"]         = '\\a'
+let g:VM_maps["Visual Find"]        = '\\f'
+let g:VM_maps["Visual Cursors"]     = '\\c'
