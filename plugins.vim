@@ -318,3 +318,8 @@ let g:VM_maps["Visual All"]         = '\\A'
 let g:VM_maps["Visual Add"]         = '\\a'
 let g:VM_maps["Visual Find"]        = '\\f'
 let g:VM_maps["Visual Cursors"]     = '\\c'
+
+" vim-commentary config
+autocmd FileType toms setlocal commentstring=//\ %s " commenting for toms files
+autocmd FileType tpf setlocal commentstring=//\ %s " commenting for tpf files
+autocmd FileType tbl setlocal commentstring=//\ %s " commenting for tbl files

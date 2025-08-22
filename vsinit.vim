@@ -13,6 +13,9 @@ call plug#begin('$HOME/.vim/bundle')
 " Multiple cursors
 Plug 'mg979/vim-visual-multi'
 
+" easy commenting
+Plug 'vim-commentary'
+
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
@@ -39,3 +42,8 @@ let g:VM_maps["Visual All"]         = '\\A'
 let g:VM_maps["Visual Add"]         = '\\a'
 let g:VM_maps["Visual Find"]        = '\\f'
 let g:VM_maps["Visual Cursors"]     = '\\c'
+
+" vim-commentary config
+autocmd FileType toms setlocal commentstring=//\ %s " commenting for toms files
+autocmd FileType tpf setlocal commentstring=//\ %s " commenting for tpf files
+autocmd FileType tbl setlocal commentstring=//\ %s " commenting for tbl files
