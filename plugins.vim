@@ -49,7 +49,7 @@ Plug 'mitchpaulus/autocorrect.vim'
 " IndentLine: Display indentation guides in yaml files
 Plug 'Yggdroot/indentLine'
 
-" vim-moothie - smooth scrolling!
+" vim-smoothie - smooth scrolling!
 Plug 'psliwka/vim-smoothie'
 
 " vim-javacomplete2: omni-completion plugin for Java

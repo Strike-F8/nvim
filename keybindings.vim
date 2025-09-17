@@ -18,8 +18,8 @@ nnoremap <silent> . :execute 'vnew ' . expand('%:p:h')<CR>
 " Exit terminal with ESC
 tnoremap <ESC> <C-\><C-n>
 
-" Exit insert mode with ";asd"
-inoremap ;asd <ESC>
+" Exit insert mode with ";j"
+inoremap ;j <ESC>
 
 " ==========SEARCHING===============
 " Ignore case when searching
