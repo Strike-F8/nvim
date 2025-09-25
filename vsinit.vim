@@ -10,6 +10,9 @@ set nocompatible
 filetype off
 call plug#begin('$HOME/.vim/bundle')
 
+" subword motion
+Plug 'chrisgrieser/nvim-spider'
+
 " Multiple cursors
 Plug 'mg979/vim-visual-multi'
 
@@ -47,3 +50,11 @@ let g:VM_maps["Visual Cursors"]     = '\\c'
 autocmd FileType toms setlocal commentstring=//\ %s " commenting for toms files
 autocmd FileType tpf setlocal commentstring=//\ %s " commenting for tpf files
 autocmd FileType tbl setlocal commentstring=//\ %s " commenting for tbl files
+
+" nvim-spider config
+
+lua << EOF
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>")
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>")
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>")
+EOF
