@@ -104,16 +104,16 @@ if has('win64') || has('win32') || has('win16')
 endif
 
 " Use normal navigation with the ALT key
-nnoremap <A-w> :normal! w<CR>
-nnoremap <A-e> :normal! e<CR>
-nnoremap <A-b> :normal! b<CR>
+nnoremap <leader>w :normal! w<CR>
+nnoremap <leader>e :normal! e<CR>
+nnoremap <leader>b :normal! b<CR>
 
 " operator-pending mode
-onoremap <A-w> :normal! w<CR>
-onoremap <A-e> :normal! e<CR>
-onoremap <A-b> :normal! b<CR>
+onoremap <leader>w :normal! w<CR>
+onoremap <leader>e :normal! e<CR>
+onoremap <leader>b :normal! b<CR>
 
 " visual mode
-xnoremap <A-w> :<C-u>normal! gvw<CR>
-xnoremap <A-e> :<C-u>normal! gve<CR>
-xnoremap <A-b> :<C-u>normal! gvb<CR>
+xnoremap <leader>w :<C-u>normal! gvw<CR>
+xnoremap <leader>e :<C-u>normal! gve<CR>
+xnoremap <leader>b :<C-u>normal! gvb<CR>
