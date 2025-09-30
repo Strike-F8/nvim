@@ -4,9 +4,6 @@
 " CTRL-A for Windows and Linux
 " F4 for MacOS
 
-" Enter command mode with semi-colon
-nnoremap : ;
-
 if system('uname -s') == "Darwin\n"
     "MacOS (Not tested yet as I no longer have a mac)
     nnoremap <silent> <F4> :vnew $MYVIMRC/..<cr>
