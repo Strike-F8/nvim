@@ -4,7 +4,7 @@ filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
 " Camel/snake case word motion
-Plug 'Strike-F8/vim-wordmotion'
+Plug 'bkad/CamelCaseMotion'
 
 " Easy undo history
 Plug 'mbbill/undotree'
@@ -326,3 +326,14 @@ let g:VM_maps["Visual Cursors"]     = '\\c'
 autocmd FileType toms setlocal commentstring=//\ %s " commenting for toms files
 autocmd FileType tpf setlocal commentstring=//\ %s " commenting for tpf files
 autocmd FileType tbl setlocal commentstring=//\ %s " commenting for tbl files
+
+" CamelCaseMotion config
+" Replace the w, b, e, and ge motions with CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
