@@ -11,7 +11,7 @@ filetype off
 call plug#begin('$HOME/.vim/bundle')
 
 " Camel/snake case word motion
-Plug 'chaoren/vim-wordmotion'
+Plug 'Strike-F8/vim-wordmotion'
 
 " Multiple cursors
 Plug 'mg979/vim-visual-multi'

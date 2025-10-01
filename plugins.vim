@@ -4,7 +4,7 @@ filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
 " Camel/snake case word motion
-Plug 'chaoren/vim-wordmotion'
+Plug 'Strike-F8/vim-wordmotion'
 
 " Easy undo history
 Plug 'mbbill/undotree'
