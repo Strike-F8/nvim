@@ -103,15 +103,10 @@ if has('win64') || has('win32') || has('win16')
     nnoremap T :!start powershell -NoExit -Command ""<CR>
 endif
 
-" Use normal navigation with the ALT key
-nnoremap <leader>w :normal! w<CR>
-nnoremap <leader>e :normal! e<CR>
-nnoremap <leader>b :normal! b<CR>
-
-" operator-pending mode
-onoremap <leader>w :normal! w<CR>
-onoremap <leader>e :normal! e<CR>
-onoremap <leader>b :normal! b<CR>
+" Use normal navigation with the leader key
+noremap <leader>w :normal! w<CR>
+noremap <leader>e :normal! e<CR>
+noremap <leader>b :normal! b<CR>
 
 " visual mode
 xnoremap <leader>w :<C-u>normal! gvw<CR>
