@@ -112,3 +112,34 @@ noremap <leader>b :normal! b<CR>
 xnoremap <leader>w :<C-u>normal! gvw<CR>
 xnoremap <leader>e :<C-u>normal! gve<CR>
 xnoremap <leader>b :<C-u>normal! gvb<CR>
+
+" Expand g motions
+function! JumpToCommentTextStart()
+    let line_num	= line('.')
+    let line		= getline(line_num)
+    let comment_string	= get(b:, 'commentstring', &commentstring)
+
+    if empty(comment_string) || comment_string ==# '%s'
+	normal! ^
+	return
+    endif
+
+    let leader	= substitute(split(comment_string, '%s')[0], '\s\+$', '', '')
+    let pattern	= '^\s*' . '\V' . escape(leader, '\.^$~[]*') . '\v\s*\zs\S'
+    let index	= match(line, pattern)
+
+    if index >= 0
+	call cursor(line_num, index + 1)
+    else
+	normal! ^
+    endif
+endfunction
+
+" Jump to the end of the line
+noremap gl $
+
+" Jump to the beginning of the comment. Otherwise, to the beginning of the line
+noremap <silent> gh :call JumpToCommentTextStart()<CR>
+
+" Start editing at the beginning of the comment. Otherwise, at the beginning of the line
+noremap <silent> I :call JumpToCommentTextStart()<Bar>startinsert<CR>
