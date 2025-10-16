@@ -93,21 +93,21 @@ nnoremap <leader>8 :tabn 8<CR>
 " Switch to tab 9
 nnoremap <leader>9 :tabn 9<CR>
 
-" Switch to next tab
-nnoremap <leader>f :tabnext<CR>
-
-" Switch to previous tab
-nnoremap <leader>d :tabprevious<CR>
-
 " Move tab to the right
 nnoremap <leader>s :+tabmove<CR>
 
 " Move tab to the left
 nnoremap <leader>a :-tabmove<CR>
 
+" Close the current tab
+nnoremap <leader>c :tabclose<CR>
+
+" Open a new tab
+nnoremap <leader>n :tabnew<CR>
+
 " Open a separate terminal in the current directory
 if has('win64') || has('win32') || has('win16')
-    nnoremap T :!start powershell -NoExit -Command ""<CR>
+    nnoremap <silent> T :!start powershell -NoExit -Command ""<CR>
 endif
 
 " Use normal navigation with the leader key
