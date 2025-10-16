@@ -28,18 +28,18 @@ if !exists('$VSCODE_PID') " If not running in VS Code, load normally
 	source $HOME\AppData\Local\nvim\plugins.vim
 	source $HOME\AppData\Local\nvim\format.vim
 	source $HOME\AppData\Local\nvim\html.vim
-	source $HOME\AppData\Local\nvim\keybindings.vim
 	source $HOME\AppData\Local\nvim\quickui.vim
 	source $HOME\AppData\Local\nvim\theme.vim
 	source $HOME\AppData\Local\nvim\coc.vim
+	source $HOME\AppData\Local\nvim\keybindings.vim
     else
 	source ~/.config/nvim/plugins.vim
 	source ~/.config/nvim/format.vim
 	source ~/.config/nvim/html.vim
-	source ~/.config/nvim/keybindings.vim
 	source ~/.config/nvim/quickui.vim
 	source ~/.config/nvim/theme.vim
 	source ~/.config/nvim/coc.vim
+	source ~/.config/nvim/keybindings.vim
     endif
 else
     " If running in vscode, load vsinit.vim

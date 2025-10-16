@@ -69,7 +69,7 @@ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 
 " Buffer switching from normal mode using leader key (\)
 " Switch to next buffer
-nnoremap <leader>l :bn<CR>
+nnoremap <leader>k :bn<CR>
 " Switch to previous buffer
 nnoremap <leader>j :bp<CR>
 
@@ -95,8 +95,15 @@ nnoremap <leader>9 :tabn 9<CR>
 
 " Switch to next tab
 nnoremap <leader>f :tabnext<CR>
+
 " Switch to previous tab
-nnoremap <leader>f :tabprev<CR>
+nnoremap <leader>d :tabprevious<CR>
+
+" Move tab to the right
+nnoremap <leader>s :+tabmove<CR>
+
+" Move tab to the left
+nnoremap <leader>a :-tabmove<CR>
 
 " Open a separate terminal in the current directory
 if has('win64') || has('win32') || has('win16')
