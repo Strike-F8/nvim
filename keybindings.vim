@@ -149,4 +149,4 @@ noremap gl $
 noremap <silent> gh :call JumpToCommentTextStart()<CR>
 
 " Start editing at the beginning of the comment. Otherwise, at the beginning of the line
-noremap <silent> I :call JumpToCommentTextStart()<Bar>startinsert<CR>
+nnoremap <silent> I :call JumpToCommentTextStart()<Bar>startinsert<CR>
