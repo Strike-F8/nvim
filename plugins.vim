@@ -55,20 +55,11 @@ Plug 'Yggdroot/indentLine'
 " vim-smoothie - smooth scrolling!
 Plug 'psliwka/vim-smoothie'
 
-" vim-javacomplete2: omni-completion plugin for Java
-Plug 'artur-shaik/vim-javacomplete2'
-
 " vim-surround: Easily edit surrounding quotes and parentheses
 Plug 'tpope/vim-surround'
 
 " vim-airline: Status bar at the bottom
 Plug 'vim-airline/vim-airline'
-
-" dispatch.vim - Asynchronous build and test dispatcher
-Plug 'tpope/vim-dispatch'
-
-" AsyncRun run commands asynchronously and output to quickfix window
-Plug 'skywind3000/asyncrun.vim'
 
 " Errormarker highlights lines that contain errors
 Plug 'mh21/errormarker.vim'
@@ -141,9 +132,6 @@ Plug 'junegunn/limelight.vim'
 
 " Org-mode for vim
 Plug 'jceb/vim-orgmode'
-
-" Undo tree
-Plug 'sjl/gundo.vim'
 
 " Print documents in the echo area
 Plug 'Shougo/echodoc.vim'
