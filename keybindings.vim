@@ -110,16 +110,6 @@ if has('win64') || has('win32') || has('win16')
     nnoremap <silent> T :!start powershell -NoExit -Command ""<CR>
 endif
 
-" Use normal navigation with the leader key
-noremap <leader>w :normal! w<CR>
-noremap <leader>e :normal! e<CR>
-noremap <leader>b :normal! b<CR>
-
-" visual mode
-xnoremap <leader>w :<C-u>normal! gvw<CR>
-xnoremap <leader>e :<C-u>normal! gve<CR>
-xnoremap <leader>b :<C-u>normal! gvb<CR>
-
 " Expand g motions
 function! JumpToCommentTextStart()
     let line_num	= line('.')

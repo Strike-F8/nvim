@@ -4,7 +4,7 @@ filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
 " Camel/snake case word motion
-Plug 'bkad/CamelCaseMotion'
+Plug 'Strike-F8/CamelCaseMotion'
 
 " Easy undo history
 Plug 'mbbill/undotree'
@@ -325,3 +325,13 @@ sunmap w
 sunmap b
 sunmap e
 sunmap ge
+
+" Use normal navigation with the leader key
+noremap <leader>w :normal! w<CR>
+noremap <leader>e :normal! e<CR>
+noremap <leader>b :normal! b<CR>
+
+" visual mode
+xnoremap <leader>w :<C-u>normal! gvw<CR>
+xnoremap <leader>e :<C-u>normal! gve<CR>
+xnoremap <leader>b :<C-u>normal! gvb<CR>
