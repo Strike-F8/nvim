@@ -53,20 +53,6 @@ vmap g9 $
 " Clear the search register afterwards so that not everything becomes highlighted
 nnoremap <silent> gG :s/\v<(.)(\w*)/\u\1\L\2/g <bar> :let @/ = ''<cr>
 
-" ASYNCRUN shortcuts/configuration
-" Open Quickfix window at 8 lines height
-let g:asyncrun_open = 8
-
-" Ring the bell when AsyncRun is finished
-let g:asyncrun_bell = 1
-
-" Get errormarker to process the quickfix window after :make
-let g:asyncrun_auto = "make"
-
-" F10 toggle quickfix window
-" TODO: open terminal in VS Code
-nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-
 " Buffer switching from normal mode using leader key (\)
 " Switch to next buffer
 nnoremap <leader>k :bn<CR>
@@ -140,3 +126,16 @@ noremap <silent> gh :call JumpToCommentTextStart()<CR>
 
 " Start editing at the beginning of the comment. Otherwise, at the beginning of the line
 nnoremap <silent> I :call JumpToCommentTextStart()<Bar>startinsert<CR>
+
+" Toggle the quickfix list with F10
+nnoremap <silent> <F10> :call ToggleQuickfix()<CR>
+
+function! ToggleQuickfix()
+    for win in range(1, winnr('$'))
+	if getwinvar(win, '&buftype') ==# 'quickfix'
+	    cclose
+	    return
+	endif
+    endfor
+    copen
+endfunction

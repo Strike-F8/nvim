@@ -161,13 +161,6 @@ syntax enable
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " set JAVA_HOME so JDK is used instead of JRE https://stackoverflow.com/a/46885299
 
-" set AsyncRun's encoding to be the same as neovim
-let g:asyncrun_encs = 'gbk'
-
-" display AsyncRun status in vim-airline
-"let g:asyncrun_status = "stopped"
-"let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
-
 " Configure IndentLine to display a thinner line
 " let g:indentLine_char = '⦙'
 
