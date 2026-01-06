@@ -4,6 +4,12 @@ if has('win64') || has('win32') || has('win16')
     let g:python3_host_prog = '~/AppData/Local/miniconda3/envs/neovim/python.exe'
 endif
 
+let s:config_root = stdpath('config')
+
+function! s:SourceConfig(filename) abort
+    execute 'source' fnameescape(s:config_root . '/' . a:filename)
+endfunction
+
 " Enable mouse scrolling and selecting in nvim-qt
 set mouse=a
 
@@ -21,33 +27,21 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 if !exists('$VSCODE_PID') " If not running in VS Code, load normally
-
-    " source vim configuration files
     " Load plugins first to prevent errors
-    if has('win64') || has('win32') || has('win16')
-	source $HOME\AppData\Local\nvim\plugins.vim
-	source $HOME\AppData\Local\nvim\format.vim
-	source $HOME\AppData\Local\nvim\html.vim
-	source $HOME\AppData\Local\nvim\quickui.vim
-	source $HOME\AppData\Local\nvim\theme.vim
-	source $HOME\AppData\Local\nvim\coc.vim
-	source $HOME\AppData\Local\nvim\keybindings.vim
-    else
-	source ~/.config/nvim/plugins.vim
-	source ~/.config/nvim/format.vim
-	source ~/.config/nvim/html.vim
-	source ~/.config/nvim/quickui.vim
-	source ~/.config/nvim/theme.vim
-	source ~/.config/nvim/coc.vim
-	source ~/.config/nvim/keybindings.vim
-    endif
+    for s:config_file in [
+                \ 'plugins.vim',
+                \ 'format.vim',
+                \ 'html.vim',
+                \ 'quickui.vim',
+                \ 'theme.vim',
+                \ 'coc.vim',
+                \ 'keybindings.vim',
+                \ ]
+        call s:SourceConfig(s:config_file)
+    endfor
 else
     " If running in vscode, load vsinit.vim
-    if has('win64') || has('win32') || has('win16')
-	source $HOME\AppData\Local\nvim\vsinit.vim
-    else
-	source ~/.config/nvim/vsinit.vim
-    endif
+    call s:SourceConfig('vsinit.vim')
 endif
 
 " Enable folding
@@ -70,6 +64,9 @@ set ignorecase
 
 " Override ignorecase option if search contains uppercase characters
 set smartcase
+
+" Use OS clipboard
+set clipboard+=unnamedplus
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c

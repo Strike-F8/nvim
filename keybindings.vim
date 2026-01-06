@@ -1,10 +1,10 @@
 " Open neovim configuration directory in a new vertical buffer
 " Configuration is in a different location depending on OS
 " but $MYVIMRC is a variable stored by nvim that always leads to the configuration file
-" CTRL-A for Windows and Linux
-" F4 for MacOS
+" Ctrl-Z for Windows and Linux
+" F4 for macOS
 
-if system('uname -s') == "Darwin\n"
+if has('mac') || has('macunix')
     "MacOS (Not tested yet as I no longer have a mac)
     nnoremap <silent> <F4> :vnew $MYVIMRC/..<cr>
 else
@@ -21,18 +21,11 @@ tnoremap <ESC> <C-\><C-n>
 " Exit insert mode with ";j"
 inoremap ;j <ESC>
 
-" ==========SEARCHING===============
-" Ignore case when searching
-set ignorecase
-
 " toggle search highlighting with F3
 nnoremap <F3> :set hlsearch!<CR>
 
 " Enter command mode with ; rather than :
 nnoremap ; :
-
-" Use OS clipboard
-set clipboard+=unnamedplus
 
 " Yank from current cursor position to end of line
 nnoremap Y y$

@@ -3,11 +3,15 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" Add more targets for operations
+" Cheatsheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
+Plug 'wellle/targets.vim'
+
 " Camel/snake case word motion
 Plug 'Strike-F8/CamelCaseMotion'
 
 " Easy undo history
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 " rainbow parentheses
 Plug 'kien/rainbow_parentheses.vim'
@@ -23,31 +27,31 @@ Plug 'kevinhwang91/nvim-hlslens'
 " Better directory view
 " Plug 'nvim-tree/nvim-web-devicons'
 " Plug 'nvim-tree/nvim-tree.lua'
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
 " csv/csv like filetype highlighting
-Plug 'mechatroner/rainbow_csv'
+Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 
 " tom language syntax highlighting
-Plug 'https://gitlab.com/Strike_F8/tom-vim'
+Plug 'https://gitlab.com/taiwa1/tom/tom-vim', { 'for': 'toms' }
 
 " tpf file syntax highlighting
-Plug 'https://gitlab.com/Strike_F8/tpf-vim'
+Plug 'https://gitlab.com/taiwa1/tom/tpf-vim', { 'for': ['tpf', 'tbl'] }
 
 " Better json support
-Plug 'VPavliashvili/json-nvim'
+Plug 'VPavliashvili/json-nvim', { 'for': ['json', 'jsonc'] }
 
 " Better python folding
-Plug 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 
 " Intellisense for C#
-Plug 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim', { 'for': ['cs', 'csx'] }
 
 " IFC file syntax highlighting
-Plug 'https://gitlab.com/Strike_F8/ifc-vim'
+Plug 'https://gitlab.com/Strike_F8/ifc-vim', { 'for': 'ifc' }
 
 " autocorrect.vim Autocorrect misspelled words from a predefined list
-Plug 'mitchpaulus/autocorrect.vim'
+Plug 'mitchpaulus/autocorrect.vim', { 'for': ['text', 'markdown'] }
 
 " IndentLine: Display indentation guides in yaml files
 Plug 'Yggdroot/indentLine'
@@ -68,10 +72,10 @@ Plug 'mh21/errormarker.vim'
 Plug 'dense-analysis/ale'
 
 " rust.vim: Rust file detection, highlighting, formatting etc..
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " RACER: Rust autocompletion
-Plug 'racer-rust/racer'
+Plug 'racer-rust/racer', { 'for': 'rust' }
 
 " plastic theme
 Plug 'flrnd/plastic.vim'
@@ -89,7 +93,7 @@ Plug 'skywind3000/vim-quickui'
 Plug 'honza/vim-snippets'
 
 " vim-markdown. Markdown highlighting
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " markdown preview
 " Install dependencies with :call mkdp#util#install()
@@ -129,16 +133,13 @@ Plug 'danilamihailov/beacon.nvim'
 Plug 'RRethy/vim-illuminate'
 
 " Limelight
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 " Org-mode for vim
 Plug 'jceb/vim-orgmode'
 
 " Print documents in the echo area
 Plug 'Shougo/echodoc.vim'
-
-" Add common snippets
-Plug 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -217,17 +218,13 @@ endfunction
 " do not lint while typing
 let g:ale_lint_on_text_changed = 'never'
 " Integrate ale with airline
-let g:airline#exxtensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 set statusline=
 set statusline+=%m
 set statusline+=\ %f
 set statusline+=%=
 set statusline+=\ %{LinterStatus()}
-filetype on
-
-" Automatically change directory when opening files, changing buffers etc
-set autochdir
 
 " Enable nvim-scrollbar
 lua require("gitsigns").setup()
@@ -290,24 +287,25 @@ let g:VM_default_mappings = 0
 let g:VM_maps = {}
 let g:VM_maps["Find Under"]         = '<C-n>'
 let g:VM_maps["Find Subword Under"] = '<C-n>'
-let g:VM_maps["Select All"]         = '\\A' 
+let g:VM_maps["Select All"]         = '\\A'
 let g:VM_maps["Start Regex Search"] = '\\/'
 let g:VM_maps["Add Cursor Down"]    = '<c-j>'
-let g:VM_maps["Add Cursor Up"]      = '<c-k>' 
+let g:VM_maps["Add Cursor Up"]      = '<c-k>'
 let g:VM_maps["Select Cursor Down"] = '<C-S-j>'
-let g:VM_maps["Select Cursor Up"]   ='<C-S-k>'
+let g:VM_maps["Select Cursor Up"]   = '<C-S-k>'
 let g:VM_maps["Add Cursor At Pos"]  = '\\\'
 
 let g:VM_maps["Visual Regex"]       = '\\/'
-let g:VM_maps["Visual All"]         = '\\A' 
+let g:VM_maps["Visual All"]         = '\\A'
 let g:VM_maps["Visual Add"]         = '\\a'
 let g:VM_maps["Visual Find"]        = '\\f'
 let g:VM_maps["Visual Cursors"]     = '\\c'
 
 " vim-commentary config
-autocmd FileType toms setlocal commentstring=//\ %s " commenting for toms files
-autocmd FileType tpf setlocal commentstring=//\ %s " commenting for tpf files
-autocmd FileType tbl setlocal commentstring=//\ %s " commenting for tbl files
+augroup commentary_commentstring
+    autocmd!
+    autocmd FileType toms,tpf,tbl setlocal commentstring=//\ %s
+augroup END
 
 " CamelCaseMotion config
 " Replace the w, b, e, and ge motions with CamelCaseMotion
@@ -440,3 +438,4 @@ let g:mkdp_combine_preview = 1
 " auto refetch combine preview contents when change markdown buffer
 " only when g:mkdp_combine_preview is 1
 let g:mkdp_combine_preview_auto_refresh = 1
+

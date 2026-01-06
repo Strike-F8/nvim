@@ -1,17 +1,17 @@
 " Load keybindings
-if has('win64') || has('win32') || has('win16')
-    source $HOME\AppData\Local\nvim\keybindings.vim
-else
-    source ~/.config/nvim/keybindings.vim
-endif
+execute 'source' fnameescape(stdpath('config') . '/keybindings.vim')
 
 " Load select plugins
 set nocompatible
 filetype off
 call plug#begin('$HOME/.vim/bundle')
 
+" Add more targets for operations
+" Cheatsheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
+Plug 'wellle/targets.vim'
+
 " Camel/snake case word motion
-Plug 'bkad/CamelCaseMotion'
+Plug 'Strike-F8/CamelCaseMotion'
 
 " Multiple cursors
 Plug 'mg979/vim-visual-multi'
@@ -36,24 +36,25 @@ let g:VM_default_mappings = 0
 let g:VM_maps = {}
 let g:VM_maps["Find Under"]         = '<C-n>'
 let g:VM_maps["Find Subword Under"] = '<C-n>'
-let g:VM_maps["Select All"]         = '\\A' 
+let g:VM_maps["Select All"]         = '\\A'
 let g:VM_maps["Start Regex Search"] = '\\/'
 let g:VM_maps["Add Cursor Down"]    = '<c-j>'
-let g:VM_maps["Add Cursor Up"]      = '<c-k>' 
+let g:VM_maps["Add Cursor Up"]      = '<c-k>'
 let g:VM_maps["Select Cursor Down"] = '<C-S-j>'
-let g:VM_maps["Select Cursor Up"]   ='<C-S-k>'
+let g:VM_maps["Select Cursor Up"]   = '<C-S-k>'
 let g:VM_maps["Add Cursor At Pos"]  = '\\\'
 
 let g:VM_maps["Visual Regex"]       = '\\/'
-let g:VM_maps["Visual All"]         = '\\A' 
+let g:VM_maps["Visual All"]         = '\\A'
 let g:VM_maps["Visual Add"]         = '\\a'
 let g:VM_maps["Visual Find"]        = '\\f'
 let g:VM_maps["Visual Cursors"]     = '\\c'
 
 " vim-commentary config
-autocmd FileType toms setlocal commentstring=//\ %s " commenting for toms files
-autocmd FileType tpf setlocal commentstring=//\ %s " commenting for tpf files
-autocmd FileType tbl setlocal commentstring=//\ %s " commenting for tbl files
+augroup commentary_commentstring
+    autocmd!
+    autocmd FileType toms,tpf,tbl setlocal commentstring=//\ %s
+augroup END
 
 " CamelCaseMotion config
 " Replace the w, b, e, and ge motions with CamelCaseMotion
