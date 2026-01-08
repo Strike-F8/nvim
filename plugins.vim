@@ -59,9 +59,6 @@ Plug 'Yggdroot/indentLine'
 " vim-smoothie - smooth scrolling!
 Plug 'psliwka/vim-smoothie'
 
-" vim-surround: Easily edit surrounding quotes and parentheses
-Plug 'tpope/vim-surround'
-
 " vim-airline: Status bar at the bottom
 Plug 'vim-airline/vim-airline'
 
