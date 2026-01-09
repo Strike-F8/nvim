@@ -252,7 +252,7 @@ let g:rbpt_loadcmd_toggle = 0
 let g:rbpt_max = 16
 
 " Undo tree config
-nnoremap t :UndotreeToggle<CR>
+nnoremap <leader>t :UndotreeToggle<CR>
 
 " Show a full-width diff window at the bottom
 if !exists('g:undotree_WindowLayout')

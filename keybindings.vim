@@ -27,6 +27,12 @@ nnoremap <F3> :set hlsearch!<CR>
 " Enter command mode with ; rather than :
 nnoremap ; :
 
+" rebind repeating f commands
+" forwards
+nnoremap <silent> , ;
+" backwards
+nnoremap <silent> s ,
+
 " Yank from current cursor position to end of line
 nnoremap Y y$
 
@@ -132,9 +138,3 @@ function! ToggleQuickfix()
     endfor
     copen
 endfunction
-
-" rebind repeating f commands
-" forwards
-nnoremap <silent> , ;
-" backwards
-nnoremap <silent> s ,
