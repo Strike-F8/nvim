@@ -6,6 +6,9 @@ set nocompatible
 filetype off
 call plug#begin('$HOME/.vim/bundle')
 
+" highlighting for f
+Plug 'unblevable/quick-scope'
+
 " Add more targets for operations
 " Cheatsheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
 Plug 'wellle/targets.vim'
@@ -187,3 +190,7 @@ let g:mkdp_combine_preview = 1
 " auto refetch combine preview contents when change markdown buffer
 " only when g:mkdp_combine_preview is 1
 let g:mkdp_combine_preview_auto_refresh = 1
+
+"" config quick-scope
+" highlight only on keypress instead of always
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

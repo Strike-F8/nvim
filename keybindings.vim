@@ -92,7 +92,7 @@ nnoremap <leader>n :tabnew<CR>
 
 " Open a separate terminal in the current directory
 if has('win64') || has('win32') || has('win16')
-    nnoremap <silent> T :!start powershell -NoExit -Command ""<CR>
+    nnoremap <silent> <leader>T :!start powershell -NoExit -Command ""<CR>
 endif
 
 " Expand g motions

@@ -7,14 +7,14 @@ call plug#begin('$HOME/.vim/bundle')
 " Cheatsheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
 Plug 'wellle/targets.vim'
 
+" highlighting for f
+Plug 'unblevable/quick-scope'
+
 " Camel/snake case word motion
 Plug 'Strike-F8/CamelCaseMotion'
 
 " Easy undo history
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-
-" rainbow parentheses
-Plug 'kien/rainbow_parentheses.vim'
 
 " Multiple cursors
 Plug 'mg979/vim-visual-multi'
@@ -132,12 +132,6 @@ Plug 'RRethy/vim-illuminate'
 " Limelight
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
-" Org-mode for vim
-Plug 'jceb/vim-orgmode'
-
-" Print documents in the echo area
-Plug 'Shougo/echodoc.vim'
-
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -185,11 +179,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 " Enable Capslock integration
 let g:airline#extensions#capslock#enabled = 1
 
-" SQL workbench configuration
-let g:sw_exe = "C:\\tools\\sqlworkbench\\SQLWorkbench.cmd"
-let g:sw_tmp = "/tmp"
-let g:sw_config_dir = "$HOME\\.sqlworkbench"
-
 " Configure Omnisharp
 " Enable highlighting in insert mode
 let g:OmniSharp_highlighting = 3
@@ -227,29 +216,6 @@ set statusline+=\ %{LinterStatus()}
 lua require("gitsigns").setup()
 lua require("scrollbar.handlers.gitsigns").setup()
 lua require("scrollbar").setup()
-
-" Rainbow parentheses config
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-
-let g:rbpt_loadcmd_toggle = 0
-let g:rbpt_max = 16
 
 " Undo tree config
 nnoremap <leader>t :UndotreeToggle<CR>
@@ -436,3 +402,6 @@ let g:mkdp_combine_preview = 1
 " only when g:mkdp_combine_preview is 1
 let g:mkdp_combine_preview_auto_refresh = 1
 
+"" config quick-scope
+" highlight only on keypress instead of always
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
