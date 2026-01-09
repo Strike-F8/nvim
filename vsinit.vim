@@ -192,5 +192,8 @@ let g:mkdp_combine_preview = 1
 let g:mkdp_combine_preview_auto_refresh = 1
 
 "" config quick-scope
+" enable quick-scope highlighting in VS Code
+highlight QuickScopePrimary   guifg=#afff5f gui=underline
+highlight QuickScopeSecondary guifg=#5fffff gui=underline
 " highlight only on keypress instead of always
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
