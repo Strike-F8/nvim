@@ -132,3 +132,9 @@ function! ToggleQuickfix()
     endfor
     copen
 endfunction
+
+" rebind repeating f commands
+" forwards
+nnoremap <silent> , ;
+" backwards
+nnoremap <silent> s ,
