@@ -217,7 +217,7 @@ lua require("gitsigns").setup()
 lua require("scrollbar.handlers.gitsigns").setup()
 lua require("scrollbar").setup()
 
-" Undo tree config
+"" Undo tree config
 nnoremap <leader>t :UndotreeToggle<CR>
 
 " Show a full-width diff window at the bottom
@@ -242,6 +242,7 @@ if has("persistent_undo")
     set undofile
 endif
  
+" Configure multiple cursors
 let g:VM_theme = 'iceblue'
 " 'iceblue', 'olive', 'codedark', 'sand'
 

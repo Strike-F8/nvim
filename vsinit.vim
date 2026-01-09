@@ -6,6 +6,9 @@ set nocompatible
 filetype off
 call plug#begin('$HOME/.vim/bundle')
 
+" Easy undo history
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+
 " highlighting for f
 Plug 'unblevable/quick-scope'
 
@@ -29,6 +32,29 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'ma
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
+
+"" Undo tree config
+nnoremap <leader>t :UndotreeToggle<CR>
+
+" disable the diff panel in VS Code
+let g:undotree_DiffAutoOpen = 0
+
+" On windows, use a supported command for diffing files
+if has('win64') || has('win32') || has('win16')
+    let g:undotree_DiffCommand = "FC"
+endif
+
+" Persistent undo across sessions
+if has("persistent_undo")
+    let undo_path = expand('~/.undotree')
+
+    if !isdirectory(undo_path)
+	call mkdir(undo_path, "p", 0700)
+    endif
+
+    let &undodir=undo_path
+    set undofile
+endif
 
 " Configure multiple cursors
 let g:VM_theme = 'iceblue'
