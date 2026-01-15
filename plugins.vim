@@ -41,9 +41,6 @@ Plug 'https://gitlab.com/taiwa1/tom/tpf-vim', { 'for': ['tpf', 'tbl'] }
 " Better json support
 Plug 'VPavliashvili/json-nvim', { 'for': ['json', 'jsonc'] }
 
-" Better python folding
-Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-
 " Intellisense for C#
 Plug 'OmniSharp/omnisharp-vim', { 'for': ['cs', 'csx'] }
 
@@ -74,12 +71,6 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " RACER: Rust autocompletion
 Plug 'racer-rust/racer', { 'for': 'rust' }
 
-" plastic theme
-Plug 'flrnd/plastic.vim'
-
-" monokai-tasty theme
-Plug 'patstockwell/vim-monokai-tasty'
-
 " vim-colorschemes pack
 Plug 'flazz/vim-colorschemes'
 
@@ -104,12 +95,6 @@ Plug 'lokaltog/vim-easymotion'
 
 " Git support
 Plug 'tpope/vim-fugitive'
-
-" Github support
-Plug 'tpope/vim-rhubarb'
-
-" Allow repetition of plugin mappings
-Plug 'tpope/vim-repeat'
 
 " Commenting plugin
 Plug 'tpope/vim-commentary'
