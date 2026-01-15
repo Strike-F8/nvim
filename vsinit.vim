@@ -29,6 +29,9 @@ Plug 'vim-commentary'
 " Install dependencies with :call mkdp#util#install()
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown'  }
 
+" Highlight the word under the cursor
+Plug 'RRethy/vim-illuminate'
+
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable

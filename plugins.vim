@@ -111,7 +111,7 @@ Plug 'liuchengxu/vista.vim'
 " Pulse the line after a search
 Plug 'danilamihailov/beacon.nvim'
 
-" Highlight word under the cursor
+" Highlight the word under the cursor
 Plug 'RRethy/vim-illuminate'
 
 " Limelight
