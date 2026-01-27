@@ -1,3 +1,6 @@
+" Fix line numbers disappearing in VS Code
+set number
+
 " Load keybindings
 execute 'source' fnameescape(stdpath('config') . '/keybindings.vim')
 
