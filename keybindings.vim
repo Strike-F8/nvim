@@ -13,7 +13,7 @@ else
 endif
 
 " Open the directory of the current buffer in a vertical split
-nnoremap <silent> . :execute 'vnew ' . expand('%:p:h')<CR>
+nnoremap <silent> <leader>. :execute 'vnew ' . expand('%:p:h')<CR>
 
 " Exit terminal with ESC
 tnoremap <ESC> <C-\><C-n>
@@ -29,9 +29,12 @@ nnoremap ; :
 
 " rebind repeating f commands
 " forwards
-nnoremap <silent> , ;
+nnoremap <silent> . ;
 " backwards
-nnoremap <silent> s ,
+" nnoremap <silent> , ,
+
+" rebind repeating edit commands to "s"
+nnoremap <silent> s .
 
 " Yank from current cursor position to end of line
 nnoremap Y y$
