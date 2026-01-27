@@ -226,3 +226,26 @@ highlight QuickScopePrimary   guifg=#afff5f gui=underline
 highlight QuickScopeSecondary guifg=#5fffff gui=underline
 " highlight only on keypress instead of always
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Bookmarks
+lua << EOF
+
+-- VSCode Neovim: call VS Code commands from Lua
+local vscode = require("vscode")
+
+-- Visual indicator toggle (gutter)
+vim.keymap.set("n", "mm", function() vscode.action("bookmarks.toggle") end)
+
+-- Next/previous
+vim.keymap.set("n", "m]", function() vscode.action("bookmarks.jumpToNext") end)
+vim.keymap.set("n", "m[", function() vscode.action("bookmarks.jumpToPrevious") end)
+
+-- Preview/list (shows a picker/list; good “preview” workflow)
+vim.keymap.set("n", "m:", function() vscode.action("bookmarks.list") end)
+
+-- Across workspace
+vim.keymap.set("n", "m?", function() vscode.action("bookmarks.listFromAllFiles") end)
+
+-- Optional: labeled bookmark (acts like an annotated mark)
+vim.keymap.set("n", "mL", function() vscode.action("bookmarks.toggleLabeled") end)
+EOF

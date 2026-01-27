@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" Improve marks
+Plug 'chentoast/marks.nvim'
+
 " Add more targets for operations
 " Cheatsheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
 Plug 'wellle/targets.vim'
@@ -391,3 +394,8 @@ let g:mkdp_combine_preview_auto_refresh = 1
 "" config quick-scope
 " highlight only on keypress instead of always
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Setup marks.nvim
+lua << EOF
+require('marks').setup()
+EOF
