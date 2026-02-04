@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" Line highlighting
+Plug 'mvllow/modes.nvim'
+
 " Improve marks
 Plug 'chentoast/marks.nvim'
 
@@ -398,4 +401,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Setup marks.nvim
 lua << EOF
 require('marks').setup()
+EOF
+
+" Setup Modes.nvim
+lua << EOF
+require("modes").setup()
 EOF
