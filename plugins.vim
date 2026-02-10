@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" vim-pencil
+Plug 'preservim/vim-pencil'
+
 " Line highlighting
 Plug 'mvllow/modes.nvim'
 
@@ -85,9 +88,6 @@ Plug 'skywind3000/vim-quickui'
 
 " vim-snippets. More code snippets for markdown
 Plug 'honza/vim-snippets'
-
-" vim-markdown. Markdown highlighting
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " markdown preview
 " Install dependencies with :call mkdp#util#install()
@@ -287,12 +287,12 @@ xnoremap <leader>b :<C-u>normal! gvb<CR>
 
 " set to 1, nvim will open the preview window after entering the Markdown buffer
 " default: 0
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 
 " set to 1, the nvim will auto close current preview window when changing
 " from Markdown buffer to another buffer
 " default: 1
-let g:mkdp_auto_close = 1
+let g:mkdp_auto_close = 0
 
 " set to 1, Vim will refresh Markdown when saving the buffer or
 " when leaving insert mode. Default 0 is auto-refresh Markdown as you edit or
@@ -407,3 +407,7 @@ EOF
 lua << EOF
 require("modes").setup()
 EOF
+
+" Enable indentLine without affecting json and markdown
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
