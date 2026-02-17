@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" vim-move
+Plug 'matze/vim-move'
+
 " vim-pencil
 Plug 'preservim/vim-pencil'
 
