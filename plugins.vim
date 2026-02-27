@@ -3,6 +3,10 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" buffer manager
+Plug 'nvim-lua/plenary.nvim'
+Plug 'j-morano/buffer_manager.nvim'
+
 " vim-move
 Plug 'matze/vim-move'
 
@@ -414,3 +418,35 @@ EOF
 " Enable indentLine without affecting json and markdown
 let g:vim_json_conceal=0
 let g:markdown_syntax_conceal=0
+
+" config buffer_manager
+lua << EOF
+require("buffer_manager").setup({
+  -- Example options (all optional)
+  short_file_names = true,
+  short_term_names = true,
+  loop_nav = false,
+  show_cols = "both",            -- "number" | "kbs" | "both"
+  win_position = { h = 0.5, v = 0.5 },
+  width = 0.6,                   -- relative if <= 1, absolute columns if > 1
+  height = 0.6,                  -- relative if <= 1, absolute rows if > 1
+  highlight = "Normal:NormalFloat",
+
+  -- Run different commands when selecting a buffer from the menu
+  select_menu_item_commands = {
+    edit = { key = "<CR>", command = "edit" },
+    v    = { key = "v",    command = "vsplit" },
+    s    = { key = "s",    command = "split"  },
+  },
+
+  -- Close menu keys (defaults include "q" and <Esc>)
+  toggle_key_bindings = { "q", "<Esc>" },
+})
+EOF
+
+" Toggle buffer menu
+nnoremap <silent> <A--> :lua require("buffer_manager.ui").toggle_quick_menu()<CR>
+
+" within the buffer menu, move buffers up and down
+autocmd FileType buffer_manager vnoremap J :m '>+1<CR>gv=gv
+autocmd FileType buffer_manager vnoremap K :m '<-2<CR>gv=gv
