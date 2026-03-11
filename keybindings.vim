@@ -30,6 +30,7 @@ nnoremap ; :
 " rebind repeating f commands
 " forwards
 nnoremap <silent> . ;
+vnoremap <silent> . ;
 " backwards
 " nnoremap <silent> , ,
 

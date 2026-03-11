@@ -31,7 +31,6 @@ if !exists('$VSCODE_PID') " If not running in VS Code, load normally
     for s:config_file in [
                 \ 'plugins.vim',
                 \ 'format.vim',
-                \ 'html.vim',
                 \ 'quickui.vim',
                 \ 'theme.vim',
                 \ 'coc.vim',
