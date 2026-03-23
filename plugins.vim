@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" Indicate active buffer by highlighting separators
+Plug 'nvim-zh/colorful-winsep.nvim'
+
 " buffer manager
 Plug 'nvim-lua/plenary.nvim'
 Plug 'j-morano/buffer_manager.nvim'
@@ -450,3 +453,41 @@ nnoremap <silent> <A--> :lua require("buffer_manager.ui").toggle_quick_menu()<CR
 " within the buffer menu, move buffers up and down
 autocmd FileType buffer_manager vnoremap J :m '>+1<CR>gv=gv
 autocmd FileType buffer_manager vnoremap K :m '<-2<CR>gv=gv
+
+" Configure Winsep
+lua << EOF
+require("colorful-winsep").setup({
+    -- choose between "single", "rounded", "bold" and "double".
+    border = "bold",
+    excluded_ft = { "packer", "TelescopePrompt", "mason" },
+    highlight = nil, -- nil|string|function. See the docs's Highlights section
+    animate = {
+        ---@type "shift"|"progressive"|false
+        enabled = "shift", -- false to disable or choose a option below (e.g. "shift") and set option for it if needed
+        shift = {
+            delay = 16, -- about 60fps
+            frames = 15, -- how many frames are required to complete the animation
+        },
+        progressive = {
+            delay = 16,
+            vertical_lerp_factor = 0.15, -- between 0 and 1
+            horizontal_lerp_factor = 0.15, -- between 0 and 1
+        },
+    },
+    indicator_for_2wins = {
+        -- only work when the total of windows is two
+        position = "center", -- false to disable or choose between "center", "start", "end" and "both"
+        symbols = {
+            -- the meaning of left, down ,up, right is the position of separator
+            start_left = "󱞬",
+            end_left = "󱞪",
+            start_down = "󱞾",
+            end_down = "󱟀",
+            start_up = "󱞢",
+            end_up = "󱞤",
+            start_right = "󱞨",
+            end_right = "󱞦",
+        },
+    },
+})
+EOF
