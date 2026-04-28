@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" Stop hlsearch when no longer necessary
+Plug 'romainl/vim-cool'
+
 " Indicate active buffer by highlighting separators
 Plug 'nvim-zh/colorful-winsep.nvim'
 
