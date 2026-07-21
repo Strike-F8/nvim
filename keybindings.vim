@@ -27,7 +27,7 @@ nnoremap <F3> :set hlsearch!<CR>
 " Enter command mode with ; rather than :
 nnoremap ; :
 
-" rebind repeating f commands
+" rebind repeating f and t commands
 " forwards
 nnoremap <silent> . ;
 vnoremap <silent> . ;
