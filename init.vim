@@ -6,6 +6,9 @@ endif
 
 let s:config_root = stdpath('config')
 
+" Local working directory follows the directory of the currently opened file
+autocmd BufEnter * silent! lcd %:p:h
+
 function! s:SourceConfig(filename) abort
     execute 'source' fnameescape(s:config_root . '/' . a:filename)
 endfunction
@@ -13,7 +16,7 @@ endfunction
 " Enable mouse scrolling and selecting in nvim-qt
 set mouse=a
 
-" Scroll before hitting the edge of the window
+" Scroll before the cursor hits the edge of the window
 set scrolloff=5
 set sidescrolloff=5
 
