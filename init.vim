@@ -36,7 +36,6 @@ if !exists('$VSCODE_PID') " If not running in VS Code, load normally
                 \ 'format.vim',
                 \ 'quickui.vim',
                 \ 'theme.vim',
-                \ 'coc.vim',
                 \ 'keybindings.vim',
                 \ ]
         call s:SourceConfig(s:config_file)

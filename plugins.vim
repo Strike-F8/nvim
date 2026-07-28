@@ -106,9 +106,6 @@ Plug 'honza/vim-snippets'
 " Install dependencies with :call mkdp#util#install()
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown'  }
 
-" Code completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " File navigation
 Plug 'lokaltog/vim-easymotion'
 
