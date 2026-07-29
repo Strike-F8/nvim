@@ -105,23 +105,23 @@ endif
 
 " Expand g motions
 function! JumpToCommentTextStart()
-    let line_num	= line('.')
-    let line		= getline(line_num)
-    let comment_string	= get(b:, 'commentstring', &commentstring)
+    let line_num        = line('.')
+    let line            = getline(line_num)
+    let comment_string  = get(b:, 'commentstring', &commentstring)
 
     if empty(comment_string) || comment_string ==# '%s'
-	normal! ^
-	return
+        normal! ^
+        return
     endif
 
-    let leader	= substitute(split(comment_string, '%s')[0], '\s\+$', '', '')
-    let pattern	= '^\s*' . '\V' . escape(leader, '\.^$~[]*') . '\v\s*\zs\S'
-    let index	= match(line, pattern)
+    let leader  = substitute(split(comment_string, '%s')[0], '\s\+$', '', '')
+    let pattern = '^\s*' . '\V' . escape(leader, '\.^$~[]*') . '\v\s*\zs\S'
+    let index   = match(line, pattern)
 
     if index >= 0
-	call cursor(line_num, index + 1)
+        call cursor(line_num, index + 1)
     else
-	normal! ^
+        normal! ^
     endif
 endfunction
 
@@ -139,10 +139,10 @@ nnoremap <silent> <F10> :call ToggleQuickfix()<CR>
 
 function! ToggleQuickfix()
     for win in range(1, winnr('$'))
-	if getwinvar(win, '&buftype') ==# 'quickfix'
-	    cclose
-	    return
-	endif
+        if getwinvar(win, '&buftype') ==# 'quickfix'
+            cclose
+            return
+        endif
     endfor
     copen
 endfunction

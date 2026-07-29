@@ -84,9 +84,6 @@ Plug 'vim-airline/vim-airline'
 " Errormarker highlights lines that contain errors
 Plug 'mh21/errormarker.vim'
 
-" ALE: syntax fixing and linting for many languages including Ruby and Python
-Plug 'dense-analysis/ale'
-
 " rust.vim: Rust file detection, highlighting, formatting etc..
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
@@ -143,12 +140,12 @@ syntax enable
 " Brief help
 " :PlugList       - lists configured plugins
 " :PlugInstall    - Install plugins
-" :PlugUpdate	  - Install or update plugins
+" :PlugUpdate     - Install or update plugins
 " :PlugClean      - Remove unlisted plugins
-" :PlugUpgrade	  - Upgrade vim-plug itself
-" :PlugStatus	  - Check the status of plugins
-" :PlugDiff	  - Examine changes from the previous update and the pending changes
-" :PlugSnapshot	  - Generate script for restoring the current snapshot of plugins
+" :PlugUpgrade    - Upgrade vim-plug itself
+" :PlugStatus     - Check the status of plugins
+" :PlugDiff       - Examine changes from the previous update and the pending changes
+" :PlugSnapshot   - Generate script for restoring the current snapshot of plugins
 "
 " Plugin configuration
 " javacomplete2 configuration
@@ -187,31 +184,10 @@ let g:OmniSharp_highlighting = 3
 " BLOCK SELECTION
 " https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim/1676690#1676690
 
-" ALE configuration: show the number of errors and warnings in status bar
-" Taken from https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019/
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? '✨ all good ✨' : printf(
-		\ '😞 %dW %dE',
-		\ all_non_errors,
-		\ all_errors
-		\)
-endfunction
-
-" do not lint while typing
-let g:ale_lint_on_text_changed = 'never'
-" Integrate ale with airline
-let g:airline#extensions#ale#enabled = 1
-
 set statusline=
 set statusline+=%m
 set statusline+=\ %f
 set statusline+=%=
-set statusline+=\ %{LinterStatus()}
 
 " Enable nvim-scrollbar
 lua require("gitsigns").setup()
@@ -236,7 +212,7 @@ if has("persistent_undo")
     let undo_path = expand('~/.undotree')
 
     if !isdirectory(undo_path)
-	call mkdir(undo_path, "p", 0700)
+        call mkdir(undo_path, "p", 0700)
     endif
 
     let &undodir=undo_path
