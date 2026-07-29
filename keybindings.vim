@@ -15,6 +15,10 @@ endif
 " Open the directory of the current buffer in a vertical split
 nnoremap <silent> <leader>. :execute 'vnew ' . expand('%:p:h')<CR>
 
+" Duplicate the current buffer in a vertical split
+" Inspired by VS Code
+nnoremap <silent> <C-\> :execute 'vnew ' . expand('%:p')<CR>
+
 " Exit terminal with ESC
 tnoremap <ESC> <C-\><C-n>
 
