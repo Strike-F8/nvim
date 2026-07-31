@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$HOME/.vim/bundle')
 
+" Git blame
+Plug 'f-person/git-blame.nvim'
+
 " Stop hlsearch when no longer necessary
 Plug 'romainl/vim-cool'
 
@@ -176,6 +179,38 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Enable Capslock integration
 let g:airline#extensions#capslock#enabled = 1
+
+let g:airline_left_sep = '>'
+let g:airline_right_sep = '<'
+
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
+let g:airline_detect_crypt = 1
+let g:airline_detect_spell = 1
+let g:airline_detect_spelllang = 1
+
+let g:airline_sip_empty_sections = 0
+
+let g:airline_section_b = '%{airline#util#wrap(airline#extensions#branch#get_head(),0)}|%-0.15{getcwd()}'
+
+" Configure git blame in vim-airline
+" disable annotations within the text body
+let g:gitblame_display_virtual_text = 0
+
+let g:gitblame_date_format = '%Y-%m-%d'
+
+function! GitBlameStatus() abort
+    if v:lua.require('gitblame').is_blame_text_available()
+        return v:lua.require('gitblame').get_current_blame_text()
+    endif
+
+    return ''
+endfunction
+
+let g:airline_section_x = airline#section#create_left([
+    \ '%{GitBlameStatus()}',
+    \ 'filetype'
+    \ ])
 
 " Configure Omnisharp
 " Enable highlighting in insert mode
