@@ -46,7 +46,6 @@ Plug 'mg979/vim-visual-multi'
 
 " scrollbar\stripe on right side
 Plug 'petertriho/nvim-scrollbar'
-Plug 'lewis6991/gitsigns.nvim'
 Plug 'kevinhwang91/nvim-hlslens'
 
 " Better directory view
@@ -191,7 +190,7 @@ let g:airline_detect_spelllang = 1
 
 let g:airline_sip_empty_sections = 0
 
-let g:airline_section_b = '%{airline#util#wrap(airline#extensions#branch#get_head(),0)}|%-0.15{getcwd()}'
+let g:airline_section_b = '%{airline#util#wrap(airline#extensions#branch#get_head(),0)}'
 
 " Configure git blame in vim-airline
 " disable annotations within the text body
@@ -207,10 +206,15 @@ function! GitBlameStatus() abort
     return ''
 endfunction
 
+let g:airline_section_c = airline#section#create_left([
+            \ '%-0.20{getcwd()}',
+            \ 'file'
+            \ ])
+
 let g:airline_section_x = airline#section#create_left([
-    \ '%{GitBlameStatus()}',
-    \ 'filetype'
-    \ ])
+            \ '%{GitBlameStatus()}',
+            \ 'filetype'
+            \ ])
 
 " Configure Omnisharp
 " Enable highlighting in insert mode
@@ -225,8 +229,6 @@ set statusline+=\ %f
 set statusline+=%=
 
 " Enable nvim-scrollbar
-lua require("gitsigns").setup()
-lua require("scrollbar.handlers.gitsigns").setup()
 lua require("scrollbar").setup()
 
 "" Undo tree config
