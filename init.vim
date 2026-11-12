@@ -65,9 +65,20 @@ set ignorecase
 
 " Override ignorecase option if search contains uppercase characters
 set smartcase
+" If running over ssh, use OSC52 to copy to the local clipboard
+if !empty($SSH_CONNECTION)
+    set clipboard=
 
-" Use OS clipboard
-set clipboard+=unnamedplus
+    augroup OSC52Copy
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' |
+            \ call luaeval("require('vim.ui.clipboard.osc52').copy('+')(_A[1], _A[2])", [v:event.regcontents, v:event.regtype]) |
+            \ endif
+    augroup END
+else
+    " If not running over ssh, use OS clipboard
+    set clipboard+=unnamedplus
+endif
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
